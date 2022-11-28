@@ -18,17 +18,23 @@ public:
 	}
 
 	// Public allocate
-	template < typename TYPE >
-	TYPE* allocate()
+	template < typename TYPE, typename... Args >
+	TYPE* allocate(Args... args)
 	{
 		auto object = reinterpret_cast<TYPE*>(allocate(sizeof(TYPE)));
 
-		return new (object) TYPE();
+		return new (object) TYPE(args...);
 	}
 
-	//TODO: Free memory method
+	template < typename TYPE >
+	void free(TYPE* object)
+	{
+		// Call destructor of class
+		object->~TYPE();
+	}
 
 private:
+	// Allocate memory in vector or return nullptr
 	void * allocate(size_t chunk_size)
 	{
 		if (allocated + chunk_size < pool.size())

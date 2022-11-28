@@ -11,6 +11,7 @@ private:
 
 public:
 	TestClass() { a = 2; b = 200; }
+	TestClass(int _a, int _b) { a = _a; b = _b; }
 };
 
 int main()
@@ -20,6 +21,7 @@ int main()
 
 	MemoryPool memorypool(50);
 	TestClass * test = memorypool.allocate<TestClass>();
+	TestClass * test2 = memorypool.allocate<TestClass>(2, 20);
 
 	return 0;
 }
