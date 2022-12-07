@@ -2,7 +2,6 @@
 
 #include <vector>
 #include <cstddef>
-#include <iostream>
 
 class MemoryPool
 {
@@ -24,7 +23,6 @@ public:
 		vector_size = pool_size;
 
 		pools.push_back(std::vector<std::byte>(pool_size));
-		std::cout << pools.size();
 	}
 
 
