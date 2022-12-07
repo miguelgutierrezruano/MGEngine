@@ -19,7 +19,7 @@ int main()
 	/*MGEngine::Window myWindow("Ventanita", 800, 700, false);
 	while (true) { }*/
 
-	MemoryPool memorypool(50);
+	MemoryPool memorypool(sizeof(TestClass));
 	TestClass * test = memorypool.allocate<TestClass>();
 	TestClass * test2 = memorypool.allocate<TestClass>(2, 20);
 
