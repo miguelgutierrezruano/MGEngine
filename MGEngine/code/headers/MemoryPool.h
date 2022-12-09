@@ -56,6 +56,10 @@ private:
 			// Create new pool
 			pools.push_back(std::vector<std::byte>(vector_size));
 			++vector_index;
+
+			// Set allocated to new pool
+			allocated = vector_index * vector_size;
+
 			void* chunk = pools[vector_index].data();
 			allocated += chunk_size;
 			return chunk;
