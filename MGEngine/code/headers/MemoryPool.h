@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <cstddef>
+#include <cassert>
 
 class MemoryPool
 {

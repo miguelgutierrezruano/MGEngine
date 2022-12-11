@@ -21,6 +21,9 @@
     <ClInclude Include="..\..\code\headers\MemoryPool.h">
       <Filter>headers</Filter>
     </ClInclude>
+    <ClInclude Include="ChunkedMemoryPool.h">
+      <Filter>headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\sources\window.cpp">
