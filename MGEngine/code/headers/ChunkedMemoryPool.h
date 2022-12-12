@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <cstddef>
 
 template< size_t CHUNK_SIZE >
 class ChunkedMemoryPool
@@ -11,7 +12,7 @@ protected:
 	// Defines each element in memory
 	struct Node
 	{
-		byte chunk[CHUNK_SIZE];
+		std::byte chunk[CHUNK_SIZE];
 		Node* prev;
 		Node* next;
 	};
@@ -53,7 +54,47 @@ public:
 		free_nodes = &pool[0];
 	}
 
+	template< typename TYPE >
+	TYPE * allocate()
+	{
+		return new (allocate()) TYPE();
+	}
+
+	template< typename TYPE >
+	void free(TYPE* chunk)
+	{
+		if (chunk)
+		{
+			chunk->~TYPE();
+			free_lists(chunk);
+		}
+	}
+
 protected:
+
+	template< typename TYPE >
+	void free_lists(TYPE* chunk)
+	{
+		Node* node = reinterpret_cast<Node*>(chunk);
+
+		// Remove from used nodes list
+		if (node->prev)
+			node->prev->next = node->next;
+		// Is first used node
+		else
+			used_nodes = node->next;
+
+		if (node->next)
+			node->next->prev = node->prev;
+
+		// Add to start of free nodes list
+		if (free_nodes)
+			free_nodes->prev = node;
+
+		node->next = free_nodes;
+		node->prev = nullptr;
+		free_nodes = node;
+	}
 
 	void * allocate()
 	{

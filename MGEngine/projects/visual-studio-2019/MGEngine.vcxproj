@@ -15,9 +15,9 @@
     <ClCompile Include="..\..\code\sources\WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\code\headers\ChunkedMemoryPool.h" />
     <ClInclude Include="..\..\code\headers\MemoryPool.h" />
     <ClInclude Include="..\..\code\headers\window.h" />
-    <ClInclude Include="ChunkedMemoryPool.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

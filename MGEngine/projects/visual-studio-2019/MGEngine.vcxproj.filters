@@ -21,7 +21,7 @@
     <ClInclude Include="..\..\code\headers\MemoryPool.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="ChunkedMemoryPool.h">
+    <ClInclude Include="..\..\code\headers\ChunkedMemoryPool.h">
       <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>
