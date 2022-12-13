@@ -3,6 +3,7 @@
 #include <iostream>
 #include "MemoryPool.h"
 #include "ChunkedMemoryPool.h"
+#include "ObjectPool.h"
 
 class TestClass
 {
@@ -33,14 +34,17 @@ int main()
 	TestClass* test7 = memorypool.allocate<TestClass>(2, 20);*/
 
 	// Chunked memory pool test
-	ChunkedMemoryPool<sizeof(TestClass)> memoryPool(50);
+	/*ChunkedMemoryPool<sizeof(TestClass)> memoryPool(50);
 	TestClass* test = memoryPool.allocate<TestClass>();
 	TestClass* test2 = memoryPool.allocate<TestClass>();
 
 	memoryPool.free(test2);
 	memoryPool.free(test);
 
-	TestClass* test4 = memoryPool.allocate<TestClass>();
+	TestClass* test4 = memoryPool.allocate<TestClass>();*/
+
+	// Object pool test
+	ObjectPool<TestClass> objectPool(3);
 
 	return 0;
 }

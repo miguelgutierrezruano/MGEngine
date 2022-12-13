@@ -17,6 +17,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\code\headers\ChunkedMemoryPool.h" />
     <ClInclude Include="..\..\code\headers\MemoryPool.h" />
+    <ClInclude Include="..\..\code\headers\ObjectPool.h" />
     <ClInclude Include="..\..\code\headers\window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
