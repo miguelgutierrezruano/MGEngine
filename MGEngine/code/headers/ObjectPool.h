@@ -8,7 +8,8 @@ class ObjectPool : protected ChunkedMemoryPool<sizeof(TYPE)>
 
 public:
 
-	ObjectPool(size_t count) : ChunkedMemoryPool<sizeof(TYPE)>(count * sizeof(Node))
+	// Create a chunked memory pool
+	ObjectPool(size_t count) : ChunkedMemoryPool<sizeof(TYPE)>(count * sizeof(ChunkedMemoryPool<sizeof(TYPE)>::Node))
 	{
 
 	}
@@ -20,6 +21,6 @@ public:
 
 	void free(TYPE* element)
 	{
-		ChunkedMemoryPool::free(element);			
+				
 	}
 };

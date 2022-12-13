@@ -41,10 +41,10 @@ int main()
 	memoryPool.free(test2);
 	memoryPool.free(test);
 
-	TestClass* test4 = memoryPool.allocate<TestClass>();*/
+	TestClass* test3 = memoryPool.allocate<TestClass>();*/
 
 	// Object pool test
-	ObjectPool<TestClass> objectPool(3);
+	ObjectPool<TestClass> objectPool(2);
 
 	return 0;
 }
