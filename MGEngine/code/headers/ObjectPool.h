@@ -2,13 +2,13 @@
 
 #include "ChunkedMemoryPool.h"
 
+// Chunked memory pool with count size for type elements
 template < typename TYPE >
 class ObjectPool : protected ChunkedMemoryPool<sizeof(TYPE)>
 {
 
 public:
 
-	// Create a chunked memory pool
 	ObjectPool(size_t count) : ChunkedMemoryPool<sizeof(TYPE)>(count * sizeof(ChunkedMemoryPool<sizeof(TYPE)>::Node))
 	{
 
@@ -16,11 +16,11 @@ public:
 
 	TYPE * allocate()
 	{
-		return nullptr;
+		return new (ChunkedMemoryPool<sizeof(TYPE)>::allocate()) TYPE();
 	}
 
 	void free(TYPE* element)
 	{
-				
+		ChunkedMemoryPool<sizeof(TYPE)>::free(element);
 	}
 };

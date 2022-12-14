@@ -44,7 +44,12 @@ int main()
 	TestClass* test3 = memoryPool.allocate<TestClass>();*/
 
 	// Object pool test
-	ObjectPool<TestClass> objectPool(2);
+	ObjectPool<TestClass> objectPool(3);
+	TestClass * test  = objectPool.allocate();
+	TestClass * test2 = objectPool.allocate();
+	TestClass * test3 = objectPool.allocate();
+
+	objectPool.free(test2);
 
 	return 0;
 }

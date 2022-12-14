@@ -31,6 +31,8 @@ public:
 	// Initialize pool with given byte size
 	ChunkedMemoryPool(size_t pool_size) : pool(pool_size / sizeof(Node))
 	{
+		// Assert to check if size is greater than 1
+
 		// Set up first node
 		pool[0].prev = nullptr;
 		pool[0].next = &pool[1];
