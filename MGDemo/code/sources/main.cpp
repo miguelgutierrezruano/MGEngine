@@ -5,6 +5,8 @@
 #include "chunked_memory_pool.h"
 #include "object_pool.h"
 
+using namespace MGEngine;
+
 class test_class
 {
 private:
@@ -21,6 +23,8 @@ int main()
 	// Window test
 	/*MGEngine::Window myWindow("Ventanita", 800, 700, false);
 	while (true) { }*/
+
+	
 
 	return 0;
 }
