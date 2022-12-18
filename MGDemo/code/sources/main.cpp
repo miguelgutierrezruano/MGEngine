@@ -1,9 +1,7 @@
 
 #include <window.h>
 #include <iostream>
-#include "incremental_memory_pool.h"
-#include "chunked_memory_pool.h"
-#include "object_pool.h"
+#include "task.h"
 
 using namespace MGEngine;
 
@@ -23,8 +21,6 @@ int main()
 	// Window test
 	/*MGEngine::Window myWindow("Ventanita", 800, 700, false);
 	while (true) { }*/
-
-	
 
 	return 0;
 }

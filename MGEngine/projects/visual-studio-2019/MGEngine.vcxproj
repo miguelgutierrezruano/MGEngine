@@ -18,6 +18,8 @@
     <ClInclude Include="..\..\code\headers\chunked_memory_pool.h" />
     <ClInclude Include="..\..\code\headers\incremental_memory_pool.h" />
     <ClInclude Include="..\..\code\headers\object_pool.h" />
+    <ClInclude Include="..\..\code\headers\task.h" />
+    <ClInclude Include="..\..\code\headers\thread_pool.h" />
     <ClInclude Include="..\..\code\headers\window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
