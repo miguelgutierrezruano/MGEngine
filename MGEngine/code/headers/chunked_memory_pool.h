@@ -4,7 +4,7 @@
 #include <cstddef>
 
 template< size_t CHUNK_SIZE >
-class ChunkedMemoryPool
+class chunked_memory_pool
 {
 
 protected:
@@ -29,7 +29,7 @@ private:
 public:
 
 	// Initialize pool with given byte size
-	ChunkedMemoryPool(size_t pool_size) : pool(pool_size / sizeof(Node))
+	chunked_memory_pool(size_t pool_size) : pool(pool_size / sizeof(Node))
 	{
 		// Assert to check if size is greater than 1
 

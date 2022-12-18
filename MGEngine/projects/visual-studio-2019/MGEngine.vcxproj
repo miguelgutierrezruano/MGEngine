@@ -15,9 +15,9 @@
     <ClCompile Include="..\..\code\sources\WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\code\headers\ChunkedMemoryPool.h" />
-    <ClInclude Include="..\..\code\headers\MemoryPool.h" />
-    <ClInclude Include="..\..\code\headers\ObjectPool.h" />
+    <ClInclude Include="..\..\code\headers\chunked_memory_pool.h" />
+    <ClInclude Include="..\..\code\headers\incremental_memory_pool.h" />
+    <ClInclude Include="..\..\code\headers\object_pool.h" />
     <ClInclude Include="..\..\code\headers\window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -4,7 +4,7 @@
 #include <cstddef>
 #include <cassert>
 
-class MemoryPool
+class incremental_memory_pool
 {
 private:
 	// Vector to handle memory
@@ -17,7 +17,7 @@ public:
 	size_t vector_size;
 
 public:
-	MemoryPool(size_t pool_size)
+	incremental_memory_pool(size_t pool_size)
 	{
 		allocated = 0;
 		vector_index = 0;

@@ -18,13 +18,13 @@
     <ClInclude Include="..\..\code\headers\window.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\headers\MemoryPool.h">
+    <ClInclude Include="..\..\code\headers\incremental_memory_pool.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\headers\ChunkedMemoryPool.h">
+    <ClInclude Include="..\..\code\headers\chunked_memory_pool.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\headers\ObjectPool.h">
+    <ClInclude Include="..\..\code\headers\object_pool.h">
       <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>
