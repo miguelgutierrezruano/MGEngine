@@ -23,7 +23,7 @@ namespace MGEngine
 			HIGH_PRIORITY = 100
 		};
 
-	private:
+	protected:
 
 		Status status;
 		
@@ -69,6 +69,8 @@ namespace MGEngine
 		{
 			return this->priority < other.priority;
 		}
+
+		void cancel() { status = CANCELLED; }
 
 	protected:
 
