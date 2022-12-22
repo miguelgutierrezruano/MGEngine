@@ -61,14 +61,15 @@ protected:
 	}
 };
 
-void test3094()
+void test3094(int n)
 {
 
 }
 
 int main()
 {
-	auto myThread = std::thread(test3094);
+	auto myThread = std::thread(test3094, 4);
+	myThread.join();
 
 	/*thread_pool tp;
 

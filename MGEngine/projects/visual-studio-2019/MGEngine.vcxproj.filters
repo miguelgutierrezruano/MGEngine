@@ -16,6 +16,12 @@
     <Filter Include="headers\memory_pools">
       <UniqueIdentifier>{56b11602-8214-486c-8397-5bef11965554}</UniqueIdentifier>
     </Filter>
+    <Filter Include="headers\ECS">
+      <UniqueIdentifier>{2edd0084-14a0-4657-aa6d-f089a04c0f31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\default_systems">
+      <UniqueIdentifier>{c6edb4cf-96ee-4ae7-9ccd-0cf66e5e26b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\headers\window.h">
@@ -35,6 +41,21 @@
     </ClInclude>
     <ClInclude Include="..\..\code\headers\thread_pool.h">
       <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\kernel.h">
+      <Filter>headers\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\entity.h">
+      <Filter>headers\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\component.h">
+      <Filter>headers\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\scene.h">
+      <Filter>headers\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\system.h">
+      <Filter>headers\ECS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
