@@ -12,7 +12,7 @@ namespace MGEngine
 	{
 		// List of user threads
 		std::list< std::shared_ptr< std::thread > > threads;
-
+public:
 		// Queue of tasks to do
 		std::priority_queue< task* > task_queue;
 
@@ -32,27 +32,26 @@ namespace MGEngine
 			{
 				// Add thread function to each thread
 				threads.push_back(std::make_shared<std::thread>(thread_function, this));
-				threads.back().get()->join();
 			}
 
 			running = true;
 		}
 
+		~thread_pool()
+		{
+			stop();
+		}
+
 		void add_task(task * _task)
 		{
 			// Lock mutex to use task queue
-			task_queue_mutex.lock();
+			std::lock_guard<std::mutex> lock(task_queue_mutex);
 
 			task_queue.push(_task);
-
-			task_queue_mutex.unlock();
 		}
 
-		void cancel()
+		void stop()
 		{
-			// Lock mutex to use task queue
-			task_queue_mutex.lock();
-
 			if (running)
 			{
 				running = false;
@@ -71,8 +70,6 @@ namespace MGEngine
 					thread.get()->join();
 				}
 			}
-
-			task_queue_mutex.unlock();
 		}
 
 	private:
@@ -85,23 +82,22 @@ namespace MGEngine
 				task* task;
 
 				// Lock task queue
-				thread_pool->task_queue_mutex.lock();
-
-				// Search for waiting task
-				do
 				{
-					task = nullptr;
+					std::lock_guard<std::mutex> lock(thread_pool->task_queue_mutex);
 
-					if (not thread_pool->task_queue.empty())
+					// Search for waiting task
+					do
 					{
-						// Save and pop task
-						task = thread_pool->task_queue.top();
-						thread_pool->task_queue.pop();
-					}
-				} while (task->CANCELLED);
+						task = nullptr;
 
-				// Free task queue
-				thread_pool->task_queue_mutex.unlock();
+						if (not thread_pool->task_queue.empty())
+						{
+							// Save and pop task
+							task = thread_pool->task_queue.top();
+							thread_pool->task_queue.pop();
+						}
+					} while (task->CANCELLED);
+				}
 
 				// Execute task
 				if (task)

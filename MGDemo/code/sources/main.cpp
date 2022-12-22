@@ -68,10 +68,7 @@ void test3094(int n)
 
 int main()
 {
-	auto myThread = std::thread(test3094, 4);
-	myThread.join();
-
-	/*thread_pool tp;
+	thread_pool tp;
 
 	dummy_tasks dummy_task;
 	dummy_tasks high_dummy(task::HIGH_PRIORITY, false);
@@ -87,7 +84,7 @@ int main()
 	while (not tp.task_queue.empty())
 	{
 
-	}*/
+	}
 
 	std::cout << "All tasks finished!";
 

@@ -11,7 +11,6 @@ namespace MGEngine
 	private:
 		// Vector to handle memory
 		std::vector<std::vector<std::byte>> pools;
-		//std::vector<std::byte> pool;
 		// Size of allocated memory
 		size_t allocated;
 	public:
