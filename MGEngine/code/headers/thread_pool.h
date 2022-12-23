@@ -20,6 +20,8 @@ namespace MGEngine
 
 		bool running;
 
+		float delta_time;
+
 	public:
 
 		thread_pool()
@@ -36,6 +38,7 @@ namespace MGEngine
 			}
 
 			running = true;
+			delta_time = 0;
 		}
 
 		~thread_pool()
@@ -103,7 +106,7 @@ namespace MGEngine
 				// Execute task
 				if (task)
 				{
-					task->start();
+					task->start(thread_pool->delta_time);
 				}
 
 				// Sleep if task queue is empty. Then add non consumable task to task queue again

@@ -55,13 +55,13 @@ namespace MGEngine
 		bool is_consumable() const { return consumable; }
 
 		// Handle tasks
-		void start()
+		void start(float delta)
 		{
 			// Add events to avoid checking status on loop
 			status = RUNNING;
 
 			if (status != CANCELLED)
-				run();
+				run(delta);
 
 			status = FINISHED;
 		}
@@ -77,7 +77,7 @@ namespace MGEngine
 	protected:
 
 		// Pure virtual method
-		virtual void run() = 0;
+		virtual void run(float delta) = 0;
 	};
 
 	//TODO: task_group
