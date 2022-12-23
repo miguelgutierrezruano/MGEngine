@@ -12,7 +12,6 @@ namespace MGEngine
 	{
 		// List of user threads
 		std::list< std::shared_ptr< std::thread > > threads;
-public:
 		// Queue of tasks to do
 		std::priority_queue< task* > task_queue;
 
@@ -26,6 +25,8 @@ public:
 		thread_pool()
 		{
 			running = false;
+
+			threads.resize(std::thread::hardware_concurrency());
 
 			// Add usable threads to list
 			for (unsigned int i = 0; i < std::thread::hardware_concurrency(); ++i)
@@ -96,12 +97,16 @@ public:
 							task = thread_pool->task_queue.top();
 							thread_pool->task_queue.pop();
 						}
-					} while (task->CANCELLED);
+					} while (task == nullptr && not thread_pool->task_queue.empty());
 				}
 
 				// Execute task
 				if (task)
+				{
 					task->start();
+				}
+
+				// Sleep if task queue is empty. Then add non consumable task to task queue again
 			}
 		}
 

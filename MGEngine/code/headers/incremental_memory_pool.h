@@ -13,7 +13,7 @@ namespace MGEngine
 		std::vector<std::vector<std::byte>> pools;
 		// Size of allocated memory
 		size_t allocated;
-	public:
+
 		size_t vector_index;
 		size_t vector_size;
 
@@ -47,6 +47,8 @@ namespace MGEngine
 		// Allocate memory in vector or return nullptr
 		void* allocate(size_t chunk_size)
 		{
+			assert(chunk_size < vector_size, "Memory pool segments are too small for this object");
+
 			if (allocated - (vector_index * vector_size) + chunk_size < pools[vector_index].size())
 			{
 				void* chunk = pools[vector_index].data() + allocated - (vector_index * vector_size);

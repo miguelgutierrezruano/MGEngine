@@ -50,7 +50,9 @@ namespace MGEngine
 			consumable = is_consumable;
 		}
 
-		Status get_status() const { return status; }
+		Status get_status() { return status; }
+
+		bool is_consumable() const { return consumable; }
 
 		// Handle tasks
 		void start()

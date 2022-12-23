@@ -1,7 +1,7 @@
 
 #include <window.h>
 #include <iostream>
-#include "thread_pool.h"
+#include "incremental_memory_pool.h"
 #include "task.h"
 
 using namespace MGEngine;
@@ -61,32 +61,8 @@ protected:
 	}
 };
 
-void test3094(int n)
-{
-
-}
-
 int main()
 {
-	thread_pool tp;
-
-	dummy_tasks dummy_task;
-	dummy_tasks high_dummy(task::HIGH_PRIORITY, false);
-
-	tp.add_task(&dummy_task);
-	tp.add_task(&high_dummy);
-
-	task* topTask = tp.task_queue.top();
-
-	tp.add_task(&dummy_task);
-	tp.add_task(&dummy_task);
-
-	while (not tp.task_queue.empty())
-	{
-
-	}
-
-	std::cout << "All tasks finished!";
 
 	return 0;
 }
