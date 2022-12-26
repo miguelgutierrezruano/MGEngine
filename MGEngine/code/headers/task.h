@@ -18,9 +18,9 @@ namespace MGEngine
 
 		enum Priority
 		{
-			LOW_PRIORITY = -100,
-			DEFAULT_PRIORITY = 0,
-			HIGH_PRIORITY = 100
+			INPUT_PRIORITY = 300,
+			UPDATE_PRIORITY = 200,
+			RENDER_PRIORITY = 100
 		};
 
 	protected:
@@ -37,7 +37,7 @@ namespace MGEngine
 		task()
 		{
 			status   = WAITING;
-			priority = DEFAULT_PRIORITY;
+			priority = UPDATE_PRIORITY;
 
 			consumable = false;
 		}
@@ -77,8 +77,6 @@ namespace MGEngine
 	protected:
 
 		// Pure virtual method
-		virtual void run(float delta) = 0;
+		virtual void run(float ) = 0;
 	};
-
-	//TODO: task_group
 }
