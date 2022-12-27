@@ -39,15 +39,7 @@ namespace MGEngine
 			status   = WAITING;
 			priority = UPDATE_PRIORITY;
 
-			consumable = false;
-		}
-
-		task(Priority given_priority, bool is_consumable)
-		{
-			status = WAITING;
-			priority = given_priority;
-
-			consumable = is_consumable;
+			consumable = true;
 		}
 
 		Status get_status() { return status; }

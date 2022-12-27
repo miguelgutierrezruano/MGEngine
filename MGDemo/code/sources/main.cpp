@@ -1,7 +1,7 @@
 
 #include <window.h>
 #include <iostream>
-#include "kernel.h"
+#include "scene.h"
 #include "task.h"
 
 using namespace MGEngine;
@@ -27,7 +27,7 @@ public:
 		status = WAITING;
 		priority = UPDATE_PRIORITY;
 
-		consumable = false;
+		consumable = true;
 	}
 
 	dummy_tasks(Priority given_priority, bool is_consumable = true)
@@ -65,13 +65,10 @@ protected:
 
 int main()
 {
-	dummy_tasks mydummy(task::UPDATE_PRIORITY, false);
+	scene first_scene;
 
-	kernel my_kernel;
-	my_kernel.set_fps(1);
-	my_kernel.add_task(&mydummy);
-
-	my_kernel.execute();
+	first_scene.load_default_scene();
+	//first_scene.run();
 
 	return 0;
 }
