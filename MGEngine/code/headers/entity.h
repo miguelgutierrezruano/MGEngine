@@ -21,6 +21,16 @@ namespace MGEngine
 			given_component->set_owner(this);
 		}
 
+		component * get_component(const std::string & id)
+		{
+			auto map_it = components.find(id);
+
+			if (map_it != components.end())
+				return map_it->second;
+			else
+				return nullptr;
+		}
+
 		transform & get_transform()
 		{
 			return e_transform;
