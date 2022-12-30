@@ -19,11 +19,14 @@ namespace MGEngine
 		map< string, shared_ptr< entity* > > entities;
 		map< string, system* > systems;
 
+		dummy_system dum_system;
+
 	public:
 
 		scene()
 		{
 			// Add default systems
+			s_kernel.add_task(dum_system.get_task());
 		}
 
 		void load_default_scene()
@@ -31,9 +34,7 @@ namespace MGEngine
 			// Create base scene
 			auto first_entity = make_shared< entity >();
 
-			component my_component;
-
-			first_entity.get()->add_component("aaa", &my_component);
+			first_entity.get()->add_component("dummy", dum_system.create_component());
 		}
 
 		void run()

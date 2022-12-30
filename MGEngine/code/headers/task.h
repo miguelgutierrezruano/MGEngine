@@ -39,7 +39,7 @@ namespace MGEngine
 			status   = WAITING;
 			priority = UPDATE_PRIORITY;
 
-			consumable = true;
+			consumable = false;
 		}
 
 		Status get_status() { return status; }
