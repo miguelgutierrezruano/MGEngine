@@ -22,6 +22,9 @@ int main()
 	scene first_scene;
 
 	first_scene.load_default_scene();
+
+	Window window("MGDemo", 800, 600, false);
+
 	first_scene.run();
 
 	return 0;

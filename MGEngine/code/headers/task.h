@@ -1,5 +1,7 @@
 #pragma once
 
+#include "component.h"
+
 namespace MGEngine
 {
 	class task
@@ -65,6 +67,9 @@ namespace MGEngine
 		}
 
 		void cancel() { status = CANCELLED; }
+
+		// Virtual method to add components to tasks sytem
+		virtual void add_component(std::shared_ptr< component >) = 0;
 
 	protected:
 

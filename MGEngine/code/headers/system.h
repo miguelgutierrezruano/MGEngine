@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <memory>
+#include <list>
 #include "component.h"
 
 namespace MGEngine
@@ -11,17 +12,20 @@ namespace MGEngine
 	{
 	public:
 
-		virtual component* create_component() = 0;
+		// Give variadic arguments to component if needed
+		virtual std::shared_ptr< component > create_component() = 0;
 		virtual task* get_task() { return nullptr; }
 	};
 
+
 	class dummy_system : public system
 	{
-	public:
-
-		// Task of system should search for all components of the scene and procceed
+		// Task of system
 		class dummy_task : public task
 		{
+			// List of components managed by the system
+			std::list < std::shared_ptr< component > > dummy_components;
+
 			void lots_of_multiplications()
 			{
 				int x;
@@ -32,33 +36,51 @@ namespace MGEngine
 				}
 			}
 
+		public:
+
+			// Add component to tasks list
+			void add_component(std::shared_ptr< component > given) override
+			{
+				dummy_components.push_back(given);
+			}
+
 		protected:
 
+			// Execution of the task
 			void run(float delta_time) override
 			{
-				for (size_t i = 0; i < 10; i++)
-				{
-					lots_of_multiplications();
-				}
+				int it = 0;
 
-				std::cout << "Task finished!" << std::endl;
+				for (auto d_c : dummy_components)
+				{
+					for (size_t i = 0; i < 10; i++)
+					{
+						lots_of_multiplications();
+					}
+
+					++it;
+
+					std::cout << "Task finished! " << it << std::endl;
+				}					
 			}
 		};
 
-	public:
+		dummy_task dummytask;
 
+		// Empty component
 		class dummy_component : public component
 		{
 			
 		};
 
-		component* create_component() override
+	public:
+
+		std::shared_ptr< component > create_component() override
 		{
-			dummy_component * dummy_comp = new dummy_component;
+			auto dummy_comp = std::make_shared< component >();
+			dummytask.add_component(dummy_comp);
 			return dummy_comp;
 		}
-
-		dummy_task dummytask;
 
 		task* get_task() override
 		{

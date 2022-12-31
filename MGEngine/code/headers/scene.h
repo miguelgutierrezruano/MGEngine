@@ -27,6 +27,8 @@ namespace MGEngine
 		{
 			// Add default systems
 			s_kernel.add_task(dum_system.get_task());
+
+			s_kernel.set_fps(1);
 		}
 
 		void load_default_scene()
@@ -34,7 +36,11 @@ namespace MGEngine
 			// Create base scene
 			auto first_entity = make_shared< entity >();
 
-			first_entity.get()->add_component("dummy", dum_system.create_component());
+			first_entity.get()->add_component("dummy", dum_system.create_component().get());
+
+			auto second = make_shared< entity >();
+
+			second.get()->add_component("dummy", dum_system.create_component().get());
 		}
 
 		void run()

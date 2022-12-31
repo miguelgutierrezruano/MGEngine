@@ -10,11 +10,12 @@ namespace MGEngine
 	{
 		transform e_transform;
 
-		// Each component of the entity and its id
+		// Map of each component of the entity and its id
 		std::map< std::string, component* > components;
 
 	public:
 
+		// Method to add components to entity
 		void add_component(const std::string & id, component * given_component)
 		{
 			components.emplace(id, given_component);
