@@ -20,6 +20,11 @@ namespace MGEngine
 		{
 			owner = _owner;
 		}
+
+		entity * get_owner()
+		{
+			return owner;
+		}
 	};
 
 	class transform : public component
