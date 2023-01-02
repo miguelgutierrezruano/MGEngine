@@ -57,6 +57,9 @@
     <ClInclude Include="..\..\code\headers\system.h">
       <Filter>headers\ECS</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\code\headers\render_system.h">
+      <Filter>headers\default_systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\sources\window.cpp">
@@ -72,6 +75,9 @@
       <Filter>sources</Filter>
     </ClCompile>
     <ClCompile Include="..\..\code\sources\Keyboard.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\render_system.cpp">
       <Filter>sources</Filter>
     </ClCompile>
   </ItemGroup>

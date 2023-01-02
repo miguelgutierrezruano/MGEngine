@@ -14,6 +14,7 @@
     <ClCompile Include="..\..\code\sources\finalize.cpp" />
     <ClCompile Include="..\..\code\sources\initialize.cpp" />
     <ClCompile Include="..\..\code\sources\Keyboard.cpp" />
+    <ClCompile Include="..\..\code\sources\render_system.cpp" />
     <ClCompile Include="..\..\code\sources\window.cpp" />
     <ClCompile Include="..\..\code\sources\WinMain.cpp" />
   </ItemGroup>
@@ -24,6 +25,7 @@
     <ClInclude Include="..\..\code\headers\incremental_memory_pool.h" />
     <ClInclude Include="..\..\code\headers\kernel.h" />
     <ClInclude Include="..\..\code\headers\object_pool.h" />
+    <ClInclude Include="..\..\code\headers\render_system.h" />
     <ClInclude Include="..\..\code\headers\scene.h" />
     <ClInclude Include="..\..\code\headers\system.h" />
     <ClInclude Include="..\..\code\headers\task.h" />

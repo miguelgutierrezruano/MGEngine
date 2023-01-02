@@ -6,17 +6,6 @@
 
 using namespace MGEngine;
 
-class test_class
-{
-private:
-	int a;
-	int b;
-
-public:
-	test_class() { a = 2; b = 200; }
-	test_class(int _a, int _b) { a = _a; b = _b; }
-};
-
 int main()
 {
 	// Create window
