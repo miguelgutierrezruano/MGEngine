@@ -4,6 +4,7 @@
 #include <memory>
 #include <list>
 #include "component.h"
+#include "task.h"
 
 namespace MGEngine
 {
