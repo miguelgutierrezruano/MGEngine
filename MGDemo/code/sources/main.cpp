@@ -19,13 +19,47 @@ public:
 
 int main()
 {
-	scene first_scene;
+	// Create window
+	Window window("MGDemo", 800, 600);
+	window.enable_vsync();
 
+	// Create scene
+	scene first_scene;
 	first_scene.load_default_scene();
 
-	Window window("MGDemo", 800, 600, false);
+	bool exit = false;
 
-	first_scene.run();
+	while (!exit)
+	{
+		Window::Event event;
+
+		while (window.poll(event))
+		{
+			switch (event.type)
+			{
+				// Close window if close button is pressed
+				case Window::Event::CLOSE:
+				{
+					exit = true;
+					break;
+				}
+
+				// Close window if esc key is pressed
+				case Window::Event::KEY_PRESSED:
+				{
+					if (event.data.keyboard.key_code == Keyboard::KEY_ESCAPE)
+					{
+						exit = true;
+					}
+
+					break;
+				}
+			}
+		}
+
+		// Engine main loop
+		first_scene.run_frame();
+	}
 
 	return 0;
 }

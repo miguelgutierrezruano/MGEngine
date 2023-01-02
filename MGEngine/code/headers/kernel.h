@@ -23,15 +23,12 @@ namespace MGEngine
 
 		float fps;
 
-		bool stop;
-
 	public:
 
 		// Set default values
 		kernel()
 		{
 			fps = 60;
-			stop = true;
 		}
 
 		// Give task to thread pool
@@ -43,66 +40,41 @@ namespace MGEngine
 			task_queue.push(given_task);
 		}
 
-		void stop_exec()
-		{
-			stop = true;
-		}
-
 		void set_fps(float new_fps)
 		{
 			fps = new_fps;
 		}
 
-		void execute()
+		void execute_frame()
 		{
-			stop = false;
-
 			auto chrono = high_resolution_clock();
 			float frame_duration = 1.f / fps;
 			float delta_time = frame_duration;
 
 			high_resolution_clock::time_point start;
 
-			do
-			{
-				// Get time where frame started
-				start = chrono.now();
+			// Get time where frame started
+			start = chrono.now();
 
-				// Execute all tasks
-				while (not task_queue.empty())
-				{
-					task_queue.top()->start(delta_time);
-					task_queue.pop();
-				}
-
-				// Calculate and apply delay if needed
-				duration<float> delay = duration<float>(frame_duration) - duration<float>(chrono.now() - start);
-				if (delay.count() > 0.f)
-					std::this_thread::sleep_for(delay);
-
-				// Set delta time for next frame
-				delta_time = duration<float>(chrono.now() - start).count();
-
-				// Add non consumable tasks back to queue
-				for (task* n_c_task : non_consumable_tasks)
-				{
-					task_queue.push(n_c_task);
-				}
-			} while (not stop);
-
-			clear_tasks();
-		}
-
-	private:
-
-		void clear_tasks()
-		{
+			// Execute all tasks
 			while (not task_queue.empty())
 			{
-				// Cancel task
-				task_queue.top()->cancel();
-				// Remove task
+				task_queue.top()->start(delta_time);
 				task_queue.pop();
+			}
+
+			// Calculate and apply delay if needed
+			duration<float> delay = duration<float>(frame_duration) - duration<float>(chrono.now() - start);
+			if (delay.count() > 0.f)
+				std::this_thread::sleep_for(delay);
+
+			// Set delta time for next frame
+			delta_time = duration<float>(chrono.now() - start).count();
+
+			// Add non consumable tasks back to queue
+			for (task* n_c_task : non_consumable_tasks)
+			{
+				task_queue.push(n_c_task);
 			}
 		}
 	};

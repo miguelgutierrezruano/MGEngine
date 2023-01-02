@@ -25,10 +25,10 @@ namespace MGEngine
 
 		scene()
 		{
-			// Add default systems
+			// Add default systems tasks
 			s_kernel.add_task(dum_system.get_task());
 
-			s_kernel.set_fps(1);
+			//s_kernel.set_fps(1);
 		}
 
 		void load_default_scene()
@@ -43,10 +43,9 @@ namespace MGEngine
 			second.get()->add_component("dummy", dum_system.create_component().get());
 		}
 
-		void run()
+		void run_frame()
 		{
-			s_kernel.execute();
+			s_kernel.execute_frame();
 		}
-
 	};
 }

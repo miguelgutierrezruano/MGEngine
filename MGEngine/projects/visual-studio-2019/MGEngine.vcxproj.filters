@@ -65,5 +65,14 @@
     <ClCompile Include="..\..\code\sources\WinMain.cpp">
       <Filter>sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\code\sources\initialize.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\finalize.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\Keyboard.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
