@@ -23,12 +23,18 @@ namespace MGEngine
 
 		float fps;
 
+		high_resolution_clock chrono;
+		float frame_duration;
+		float delta_time;
+
 	public:
 
 		// Set default values
 		kernel()
 		{
 			fps = 60;
+			frame_duration = 1.f / fps;
+			delta_time = frame_duration;
 		}
 
 		// Give task to thread pool
@@ -43,18 +49,13 @@ namespace MGEngine
 		void set_fps(float new_fps)
 		{
 			fps = new_fps;
+			frame_duration = 1.f / fps;
 		}
 
 		void execute_frame()
 		{
-			auto chrono = high_resolution_clock();
-			float frame_duration = 1.f / fps;
-			float delta_time = frame_duration;
-
-			high_resolution_clock::time_point start;
-
 			// Get time where frame started
-			start = chrono.now();
+			high_resolution_clock::time_point start = chrono.now();
 
 			// Execute all tasks
 			while (not task_queue.empty())

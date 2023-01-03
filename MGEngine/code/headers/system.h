@@ -39,6 +39,14 @@ namespace MGEngine
 
 		public:
 
+			dummy_task()
+			{
+				status = WAITING;
+				priority = UPDATE_PRIORITY;
+
+				consumable = false;
+			}
+
 			// Add component to tasks list
 			void add_component(std::shared_ptr< component > given) override
 			{

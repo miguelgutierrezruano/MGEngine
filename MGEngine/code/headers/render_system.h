@@ -40,10 +40,14 @@ namespace MGEngine
 		// Instance of render task
 		render_task r_task;
 
+	public:
+
 		render_system(Window & given_window)
 		{
 			r_task.set_window(given_window);
 		}
+
+	private:
 
 		class render_component : public component
 		{

@@ -13,7 +13,7 @@ int main()
 	window.enable_vsync();
 
 	// Create scene
-	scene first_scene;
+	scene first_scene(window);
 	first_scene.load_default_scene();
 
 	bool exit = false;
