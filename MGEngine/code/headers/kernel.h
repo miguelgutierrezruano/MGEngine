@@ -2,6 +2,7 @@
 
 #include <chrono>
 #include <list>
+#include <vector>
 #include <queue>
 #include <thread>
 #include "task.h"
@@ -10,13 +11,14 @@ using namespace std::chrono;
 
 namespace MGEngine
 {
+	using ptr_priority_queue = std::priority_queue< task*, std::vector< task* >, Task_Priority_Less >;
 
 	class kernel
 	{
 		// TODO: Thread pool to manage tasks multithread
 
 		// Queue of tasks to do
-		std::priority_queue< task* > task_queue;
+		ptr_priority_queue task_queue;
 
 		// List of non consumable task to add back to queue
 		std::list< task* > non_consumable_tasks;

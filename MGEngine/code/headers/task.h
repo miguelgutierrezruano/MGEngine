@@ -45,6 +45,7 @@ namespace MGEngine
 		}
 
 		Status get_status() { return status; }
+		Priority get_priority() const { return priority; }
 
 		bool is_consumable() const { return consumable; }
 
@@ -75,5 +76,15 @@ namespace MGEngine
 
 		// Pure virtual method
 		virtual void run(float ) = 0;
+	};
+
+	class Task_Priority_Less
+	{
+	public:
+		// Sobrecarga del operador de llamada a función:
+		bool operator () (const task* a, const task* b)
+		{
+			return a->get_priority() < b->get_priority();
+		}
 	};
 }

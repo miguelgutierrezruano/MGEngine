@@ -28,8 +28,8 @@ namespace MGEngine
 		scene(Window & given_window)
 		{
 			// Create systems. TODO: Use memorypools
-			dum_system = new dummy_system();
 			render_sys = new render_system(given_window);
+			dum_system = new dummy_system();
 
 			// Add default systems tasks
 			s_kernel.add_task(dum_system->get_task());

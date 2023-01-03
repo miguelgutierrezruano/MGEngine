@@ -19,6 +19,8 @@ namespace MGEngine
 
 			Window * task_window;
 
+			glt::Render_Node * renderer;
+
 		public:
 
 			render_task();
@@ -30,6 +32,7 @@ namespace MGEngine
 			}
 
 			void set_window(Window& given_window) { task_window = &given_window; }
+			void set_renderer(glt::Render_Node * given) { renderer = given; }
 
 		protected:
 
@@ -40,12 +43,11 @@ namespace MGEngine
 		// Instance of render task
 		render_task r_task;
 
+		glt::Render_Node * renderer;
+
 	public:
 
-		render_system(Window & given_window)
-		{
-			r_task.set_window(given_window);
-		}
+		render_system(Window& given_window);
 
 	private:
 
