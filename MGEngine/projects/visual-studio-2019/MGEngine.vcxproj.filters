@@ -22,6 +22,9 @@
     <Filter Include="headers\default_systems">
       <UniqueIdentifier>{c6edb4cf-96ee-4ae7-9ccd-0cf66e5e26b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sources\opengl-init">
+      <UniqueIdentifier>{94ed46bf-3426-438a-9de3-90f2b83e967a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\headers\window.h">
@@ -68,16 +71,19 @@
     <ClCompile Include="..\..\code\sources\WinMain.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\sources\initialize.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\code\sources\finalize.cpp">
+    <ClCompile Include="..\..\code\sources\render_system.cpp">
       <Filter>sources</Filter>
     </ClCompile>
     <ClCompile Include="..\..\code\sources\Keyboard.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\sources\render_system.cpp">
+    <ClCompile Include="..\..\code\sources\finalize.cpp">
+      <Filter>sources\opengl-init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\initialize.cpp">
+      <Filter>sources\opengl-init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\scene.cpp">
       <Filter>sources</Filter>
     </ClCompile>
   </ItemGroup>

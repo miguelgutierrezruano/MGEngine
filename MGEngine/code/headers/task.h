@@ -1,15 +1,25 @@
+/*
+ * @file Task
+ * @author Miguel Gutierrez
+ *
+ * Copyright (c) 2022 miguelguti
+ *
+ * Distributed under the MIT License
+ */
+
 #pragma once
 
-#include "component.h"
+#include <component.h>
 
 namespace MGEngine
 {
+	/// Class to execute tasks on kernel
 	class task
 	{
 
 	public:
 
-		// Status of the task
+		/// Status of task
 		enum Status
 		{
 			WAITING,
@@ -18,6 +28,7 @@ namespace MGEngine
 			FINISHED
 		};
 
+		/// Priority to establish execution order
 		enum Priority
 		{
 			INPUT_PRIORITY = 300,
@@ -49,7 +60,8 @@ namespace MGEngine
 
 		bool is_consumable() const { return consumable; }
 
-		// Handle tasks
+		/// Handle task 
+		/// @delta expected time between current frame and next one
 		void start(float delta)
 		{
 			// Add events to avoid checking status on loop
@@ -69,19 +81,19 @@ namespace MGEngine
 
 		void cancel() { status = CANCELLED; }
 
-		// Virtual method to add components to tasks sytem
+		/// Virtual method to add components to task's sytem
 		virtual void add_component(std::shared_ptr< component >) = 0;
 
 	protected:
 
-		// Pure virtual method
+		/// Method to invoke when task is being executed
 		virtual void run(float ) = 0;
 	};
 
 	class Task_Priority_Less
 	{
 	public:
-		// Sobrecarga del operador de llamada a función:
+		/// Overload operator that compares to pointers of type task
 		bool operator () (const task* a, const task* b)
 		{
 			return a->get_priority() < b->get_priority();

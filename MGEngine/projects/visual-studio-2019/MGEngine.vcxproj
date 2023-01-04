@@ -15,6 +15,7 @@
     <ClCompile Include="..\..\code\sources\initialize.cpp" />
     <ClCompile Include="..\..\code\sources\Keyboard.cpp" />
     <ClCompile Include="..\..\code\sources\render_system.cpp" />
+    <ClCompile Include="..\..\code\sources\scene.cpp" />
     <ClCompile Include="..\..\code\sources\window.cpp" />
     <ClCompile Include="..\..\code\sources\WinMain.cpp" />
   </ItemGroup>

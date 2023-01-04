@@ -3,7 +3,7 @@
 #include <Cube.hpp>
 #include <Model.hpp>
 #include <Light.hpp>
-#include "render_system.h"
+#include <render_system.h>
 #include <iostream>
 
 using namespace glt;
@@ -44,11 +44,6 @@ namespace MGEngine
 		priority = RENDER_PRIORITY;
 
 		consumable = false;
-	}
-
-	render_system::render_task::~render_task()
-	{
-
 	}
 
 	void render_system::render_task::run(float delta_time)

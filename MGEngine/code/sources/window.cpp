@@ -1,5 +1,5 @@
 
-#include "window.h"
+#include <window.h>
 #include <SDL.h>
 #include <OpenGL.hpp>
 #include <cassert>

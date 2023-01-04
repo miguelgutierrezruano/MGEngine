@@ -27,7 +27,6 @@ namespace MGEngine
 		public:
 
 			render_task();
-			~render_task();
 
 			// Add component to tasks list
 			void add_component(std::shared_ptr< component > given) override

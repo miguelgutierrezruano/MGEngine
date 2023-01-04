@@ -1,8 +1,7 @@
 
 #include <window.h>
 #include <iostream>
-#include "scene.h"
-#include "task.h"
+#include <scene.h>
 
 using namespace MGEngine;
 
@@ -10,7 +9,7 @@ int main()
 {
 	// Create window
 	Window window("MGDemo", 1280, 720);
-	window.enable_vsync();
+	window.disable_vsync();
 
 	// Create scene
 	scene first_scene(window);
