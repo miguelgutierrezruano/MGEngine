@@ -15,8 +15,6 @@ namespace MGEngine
 
 	class kernel
 	{
-		// TODO: Thread pool to manage tasks multithread
-
 		// Queue of tasks to do
 		ptr_priority_queue task_queue;
 

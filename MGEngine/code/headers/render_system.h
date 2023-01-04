@@ -4,6 +4,7 @@
 #include <system.h>
 #include <task.h>
 #include <window.h>
+#include <Render_Node.hpp>
 
 namespace MGEngine
 {
@@ -19,11 +20,14 @@ namespace MGEngine
 
 			Window * task_window;
 
-			glt::Render_Node * renderer;
+		public:
+
+			std::unique_ptr< glt::Render_Node > renderer;
 
 		public:
 
 			render_task();
+			~render_task();
 
 			// Add component to tasks list
 			void add_component(std::shared_ptr< component > given) override
@@ -32,7 +36,9 @@ namespace MGEngine
 			}
 
 			void set_window(Window& given_window) { task_window = &given_window; }
-			void set_renderer(glt::Render_Node * given) { renderer = given; }
+
+			//void set_renderer(glt::Render_Node * given) { renderer = given; }
+			//glt::Render_Node * get_renderer() { return renderer; }
 
 		protected:
 
@@ -43,8 +49,6 @@ namespace MGEngine
 		// Instance of render task
 		render_task r_task;
 
-		glt::Render_Node * renderer;
-
 	public:
 
 		render_system(Window& given_window);
@@ -53,7 +57,7 @@ namespace MGEngine
 
 		class render_component : public component
 		{
-			// OpenGL att
+			// OpenGL Toolkit atributes
 		};
 
 	public:

@@ -35,7 +35,7 @@ namespace MGEngine
 			s_kernel.add_task(dum_system->get_task());
 			s_kernel.add_task(render_sys->get_task());
 
-			s_kernel.set_fps(1);
+			//s_kernel.set_fps(1);
 		}
 
 		void load_default_scene()

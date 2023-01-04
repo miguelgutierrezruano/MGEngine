@@ -15,10 +15,6 @@ namespace MGEngine
 	{
 		r_task.set_window(given_window);
 
-		renderer = new Render_Node;
-
-		r_task.set_renderer(renderer);
-
 		shared_ptr< Model  > cube(new Model);
 		shared_ptr< Camera > camera(new Camera(20.f, 1.f, 50.f, 1.f));
 		shared_ptr< Light  > light(new Light);
@@ -28,26 +24,31 @@ namespace MGEngine
 		cube->add(shared_ptr< Drawable >(new Cube), Material::default_material());
 
 		// Se añaden los nodos a la escena:
-
-		renderer->add("cube", cube);
-		renderer->add("camera", camera);
-		renderer->add("light", light);
+		
+		r_task.renderer->add("cube", cube);
+		r_task.renderer->add("camera", camera);
+		r_task.renderer->add("light", light);
 
 		// Se configuran algunas propiedades de transformación:
 
-		renderer->get("camera")->translate(Vector3(0.f, 0.f, 5.f));
-		renderer->get("light")->translate(Vector3(10.f, 10.f, 10.f));
+		r_task.renderer->get("camera")->translate(Vector3(0.f, 0.f, 5.f));
+		r_task.renderer->get("light")->translate(Vector3(10.f, 10.f, 10.f));
 	}
 
 	render_system::render_task::render_task()
 	{
 		task_window = nullptr;
-		renderer    = nullptr;
+		renderer.reset(new Render_Node);
 
 		status = WAITING;
 		priority = RENDER_PRIORITY;
 
 		consumable = false;
+	}
+
+	render_system::render_task::~render_task()
+	{
+
 	}
 
 	void render_system::render_task::run(float delta_time)

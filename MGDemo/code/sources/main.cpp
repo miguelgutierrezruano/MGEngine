@@ -9,7 +9,7 @@ using namespace MGEngine;
 int main()
 {
 	// Create window
-	Window window("MGDemo", 800, 600);
+	Window window("MGDemo", 1280, 720);
 	window.enable_vsync();
 
 	// Create scene
@@ -18,6 +18,7 @@ int main()
 
 	bool exit = false;
 
+	// TODO: Reorder detecting window events in input task
 	while (!exit)
 	{
 		Window::Event event;
