@@ -63,7 +63,7 @@ namespace MGEngine
 
 		std::shared_ptr< component > create_component() override
 		{
-			auto r_comp = std::make_shared< component >();
+			auto r_comp = std::make_shared< render_component >();
 			r_task.add_component(r_comp);
 			return r_comp;
 		}

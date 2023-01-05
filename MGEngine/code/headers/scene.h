@@ -15,6 +15,7 @@
 #include <entity.h>
 #include <system.h>
 #include <render_system.h>
+#include <input_system.h>
 
 using namespace std;
 
@@ -32,7 +33,8 @@ namespace MGEngine
 
 		// Default systems
 		render_system * render_sys;
-		dummy_system * dum_system;
+		input_system  * input_sys;
+		dummy_system  * dum_system;
 		
 
 	public:
@@ -45,9 +47,15 @@ namespace MGEngine
 		void load_default_scene();
 
 		/// Run one frame of the scene
-		void run_frame()
+		void run()
 		{
-			s_kernel.execute_frame();
+			s_kernel.execute();
+		}
+
+		/// Stop scene execution
+		void stop()
+		{
+			s_kernel.stop_exec();
 		}
 	};
 }

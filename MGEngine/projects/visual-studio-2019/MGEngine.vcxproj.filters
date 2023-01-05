@@ -25,6 +25,9 @@
     <Filter Include="sources\opengl-init">
       <UniqueIdentifier>{94ed46bf-3426-438a-9de3-90f2b83e967a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sources\default_systems">
+      <UniqueIdentifier>{001342f0-0765-4fd5-ba3a-e7f50b4230f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\headers\window.h">
@@ -63,15 +66,15 @@
     <ClInclude Include="..\..\code\headers\render_system.h">
       <Filter>headers\default_systems</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\code\headers\input_system.h">
+      <Filter>headers\default_systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\sources\window.cpp">
       <Filter>sources</Filter>
     </ClCompile>
     <ClCompile Include="..\..\code\sources\WinMain.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\code\sources\render_system.cpp">
       <Filter>sources</Filter>
     </ClCompile>
     <ClCompile Include="..\..\code\sources\Keyboard.cpp">
@@ -85,6 +88,12 @@
     </ClCompile>
     <ClCompile Include="..\..\code\sources\scene.cpp">
       <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\render_system.cpp">
+      <Filter>sources\default_systems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\input_system.cpp">
+      <Filter>sources\default_systems</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
