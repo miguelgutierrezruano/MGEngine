@@ -45,7 +45,7 @@ namespace MGEngine
 
 		class input_component : public component
 		{
-			// Not neccesary
+			// Add listener
 		};
 
 	public:
