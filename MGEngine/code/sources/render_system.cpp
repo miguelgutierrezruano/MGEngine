@@ -31,7 +31,7 @@ namespace MGEngine
 
 		// Se configuran algunas propiedades de transformación:
 
-		r_task.renderer->get("cube")->translate(Vector3(0, 0, -10.f));
+		//r_task.renderer->get("cube")->translate(Vector3(0, 0, -10.f));
 		r_task.renderer->get("camera")->translate(Vector3(0.f, 0.f, 5.f));
 		r_task.renderer->get("light")->translate(Vector3(10.f, 10.f, 10.f));
 	}

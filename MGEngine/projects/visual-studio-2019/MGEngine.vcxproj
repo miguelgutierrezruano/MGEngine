@@ -116,7 +116,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>..\..\libraries\win-x64\sdl2\lib;..\..\libraries\win-x64\opengl-toolkit\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;imm32.lib;version.lib;opengl32.lib;setupapi.lib;SDL2-static.lib;opengl-toolkit-release.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;imm32.lib;version.lib;opengl32.lib;setupapi.lib;SDL2-static.lib;opengl-toolkit.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
