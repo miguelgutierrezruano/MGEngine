@@ -3,9 +3,11 @@
 
 MGEngine::scene::scene(Window& given_window)
 {
+	window = &given_window;
+
 	// Create systems. TODO: Use memorypools
 	render_sys = new render_system(given_window);
-	input_sys = new input_system(&given_window, this);
+	input_sys  = new input_system(this);
 	dum_system = new dummy_system();
 
 	// Add default systems tasks

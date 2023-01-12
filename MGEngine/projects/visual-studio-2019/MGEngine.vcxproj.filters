@@ -28,6 +28,12 @@
     <Filter Include="sources\default_systems">
       <UniqueIdentifier>{001342f0-0765-4fd5-ba3a-e7f50b4230f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="headers\default_tasks">
+      <UniqueIdentifier>{24d0ff79-cdb3-44eb-9780-8c98c35495ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\default_tasks">
+      <UniqueIdentifier>{117d36b9-4f89-440a-a5b1-c25fd860d3c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\headers\window.h">
@@ -69,6 +75,9 @@
     <ClInclude Include="..\..\code\headers\input_system.h">
       <Filter>headers\default_systems</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\code\headers\input_task.h">
+      <Filter>headers\default_tasks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\sources\window.cpp">
@@ -94,6 +103,9 @@
     </ClCompile>
     <ClCompile Include="..\..\code\sources\input_system.cpp">
       <Filter>sources\default_systems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\input_task.cpp">
+      <Filter>sources\default_tasks</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

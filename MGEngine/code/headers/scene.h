@@ -13,7 +13,7 @@
 #include <string>
 #include <kernel.h>
 #include <entity.h>
-#include <system.h>
+#include <system.h> // Remove when dummy system makes no sense
 #include <render_system.h>
 #include <input_system.h>
 
@@ -27,6 +27,8 @@ namespace MGEngine
 	class scene
 	{
 		kernel s_kernel;
+
+		Window * window;
 
 		map< string, shared_ptr< entity* > > entities;
 		map< string, system* > systems;
@@ -56,6 +58,11 @@ namespace MGEngine
 		void stop()
 		{
 			s_kernel.stop_exec();
+		}
+
+		Window * get_window()
+		{
+			return window;
 		}
 	};
 }

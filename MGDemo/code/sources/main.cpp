@@ -9,7 +9,7 @@ int main()
 {
 	// Create window
 	Window window("MGDemo", 1280, 720);
-	window.disable_vsync();
+	window.enable_vsync();
 
 	// Create scene
 	scene first_scene(window);

@@ -10,6 +10,7 @@
 #pragma once
 
 #include <component.h>
+#include <memory>
 
 namespace MGEngine
 {
