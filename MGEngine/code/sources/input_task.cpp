@@ -33,22 +33,22 @@ namespace MGEngine
 			switch (event.type)
 			{
 				// Close window if close button is pressed
-			case Window::Event::CLOSE:
-			{
-				current_scene->stop();
-				break;
-			}
-
-			// Close window if esc key is pressed
-			case Window::Event::KEY_PRESSED:
-			{
-				if (event.data.keyboard.key_code == Keyboard::KEY_ESCAPE)
+				case Window::Event::CLOSE:
 				{
 					current_scene->stop();
+					break;
 				}
 
-				break;
-			}
+				// Close window if esc key is pressed
+				case Window::Event::KEY_PRESSED:
+				{
+					if (event.data.keyboard.key_code == Keyboard::KEY_ESCAPE)
+					{
+						current_scene->stop();
+					}
+
+					break;
+				}
 			}
 		}
 	}
