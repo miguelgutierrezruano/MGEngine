@@ -8,6 +8,12 @@
 
 namespace MGEngine
 {
+	// Mesh component
+	class mesh_component : public component
+	{
+		// OpenGL Toolkit atributes
+	};
+
 	// System to render the scene in a given window
 	class render_system : public system
 	{
@@ -16,7 +22,7 @@ namespace MGEngine
 		class render_task : public task
 		{
 			// List of components managed by the system
-			std::list < std::shared_ptr< component > > renderer_components;
+			std::list < std::shared_ptr< mesh_component > > renderer_components;
 
 			Window * task_window;
 
@@ -29,7 +35,7 @@ namespace MGEngine
 			render_task();
 
 			// Add component to tasks list
-			void add_component(std::shared_ptr< component > given) override
+			void add_component(std::shared_ptr< mesh_component > given)
 			{
 				renderer_components.push_back(given);
 			}
@@ -52,18 +58,11 @@ namespace MGEngine
 
 		render_system(Window& given_window);
 
-	private:
-
-		class render_component : public component
-		{
-			// OpenGL Toolkit atributes
-		};
-
 	public:
 
 		std::shared_ptr< component > create_component() override
 		{
-			auto r_comp = std::make_shared< render_component >();
+			auto r_comp = std::make_shared< mesh_component >();
 			r_task.add_component(r_comp);
 			return r_comp;
 		}

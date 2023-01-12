@@ -14,10 +14,8 @@ namespace MGEngine
 		consumable = false;
 	}
 
-	void input_task::set_scene(scene* given)
-	{
-		current_scene = given;
-	}
+	//void input_task::set_scene(scene* given)
+	
 
 	void input_task::run(float delta_time)
 	{

@@ -8,13 +8,18 @@ namespace MGEngine
 
 	class input_task : public task
 	{
-		scene* current_scene;
+		scene * current_scene;
+
+		// List of components
 
 	public:
 
 		input_task();
 
-		void set_scene(scene* given);
+		void set_scene(scene * given)
+		{
+			current_scene = given;
+		}
 
 	protected:
 
