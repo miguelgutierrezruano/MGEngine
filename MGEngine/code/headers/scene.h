@@ -14,6 +14,7 @@
 #include <kernel.h>
 #include <entity.h>
 #include <system.h> // Remove when dummy system makes no sense
+#include <event_dispatcher.h>
 #include <render_system.h>
 #include <input_system.h>
 
@@ -29,6 +30,8 @@ namespace MGEngine
 		kernel s_kernel;
 
 		Window * window;
+
+		event_dispatcher ev_dispatcher;
 
 		map< string, shared_ptr< entity* > > entities;
 		map< string, system* > systems;
@@ -63,6 +66,11 @@ namespace MGEngine
 		Window * get_window()
 		{
 			return window;
+		}
+
+		event_dispatcher* get_event_dispatcher()
+		{
+			return &ev_dispatcher;
 		}
 	};
 }

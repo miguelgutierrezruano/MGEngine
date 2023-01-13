@@ -25,10 +25,13 @@
     <ClInclude Include="..\..\code\headers\chunked_memory_pool.h" />
     <ClInclude Include="..\..\code\headers\component.h" />
     <ClInclude Include="..\..\code\headers\entity.h" />
+    <ClInclude Include="..\..\code\headers\event.h" />
+    <ClInclude Include="..\..\code\headers\event_dispatcher.h" />
     <ClInclude Include="..\..\code\headers\incremental_memory_pool.h" />
     <ClInclude Include="..\..\code\headers\input_system.h" />
     <ClInclude Include="..\..\code\headers\input_task.h" />
     <ClInclude Include="..\..\code\headers\kernel.h" />
+    <ClInclude Include="..\..\code\headers\Keyboard.hpp" />
     <ClInclude Include="..\..\code\headers\object_pool.h" />
     <ClInclude Include="..\..\code\headers\render_system.h" />
     <ClInclude Include="..\..\code\headers\scene.h" />

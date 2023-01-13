@@ -34,6 +34,9 @@
     <Filter Include="sources\default_tasks">
       <UniqueIdentifier>{117d36b9-4f89-440a-a5b1-c25fd860d3c1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="headers\event_system">
+      <UniqueIdentifier>{497eecf5-49fd-447b-bcea-076dbd3a1696}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\headers\window.h">
@@ -77,6 +80,15 @@
     </ClInclude>
     <ClInclude Include="..\..\code\headers\input_task.h">
       <Filter>headers\default_tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Keyboard.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\event.h">
+      <Filter>headers\event_system</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\event_dispatcher.h">
+      <Filter>headers\event_system</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
