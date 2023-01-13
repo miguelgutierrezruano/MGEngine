@@ -40,10 +40,10 @@ namespace MGEngine
 				// Close window if esc key is pressed
 				case Window::Event::KEY_PRESSED:
 				{
-					if (event.data.keyboard.key_code == Keyboard::KEY_ESCAPE)
+					/*if (event.data.keyboard.key_code == Keyboard::KEY_ESCAPE)
 					{
 						current_scene->stop();
-					}
+					}*/
 
 					break;
 				}

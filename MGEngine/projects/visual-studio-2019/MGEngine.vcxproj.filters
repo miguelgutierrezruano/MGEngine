@@ -22,9 +22,6 @@
     <Filter Include="headers\default_systems">
       <UniqueIdentifier>{c6edb4cf-96ee-4ae7-9ccd-0cf66e5e26b6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="sources\opengl-init">
-      <UniqueIdentifier>{94ed46bf-3426-438a-9de3-90f2b83e967a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="sources\default_systems">
       <UniqueIdentifier>{001342f0-0765-4fd5-ba3a-e7f50b4230f3}</UniqueIdentifier>
     </Filter>
@@ -37,11 +34,14 @@
     <Filter Include="headers\event_system">
       <UniqueIdentifier>{497eecf5-49fd-447b-bcea-076dbd3a1696}</UniqueIdentifier>
     </Filter>
+    <Filter Include="headers\window">
+      <UniqueIdentifier>{93183bb8-47f5-4692-ac28-735aed3462a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\window">
+      <UniqueIdentifier>{844ab6d0-bb85-45ca-a888-d77bb5832a2d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\code\headers\window.h">
-      <Filter>headers</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\code\headers\chunked_memory_pool.h">
       <Filter>headers\memory_pools</Filter>
     </ClInclude>
@@ -81,43 +81,55 @@
     <ClInclude Include="..\..\code\headers\input_task.h">
       <Filter>headers\default_tasks</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\headers\Keyboard.hpp">
-      <Filter>headers</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\code\headers\event.h">
       <Filter>headers\event_system</Filter>
     </ClInclude>
     <ClInclude Include="..\..\code\headers\event_dispatcher.h">
       <Filter>headers\event_system</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\code\headers\Window.hpp">
+      <Filter>headers\window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\declarations.hpp">
+      <Filter>headers\window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\initialize.hpp">
+      <Filter>headers\window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Sample_Renderer.hpp">
+      <Filter>headers\window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Keyboard.hpp">
+      <Filter>headers\window</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\code\sources\window.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\code\sources\WinMain.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\sources\Keyboard.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\code\sources\finalize.cpp">
-      <Filter>sources\opengl-init</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\code\sources\initialize.cpp">
-      <Filter>sources\opengl-init</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\code\sources\scene.cpp">
       <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\code\sources\render_system.cpp">
-      <Filter>sources\default_systems</Filter>
     </ClCompile>
     <ClCompile Include="..\..\code\sources\input_system.cpp">
       <Filter>sources\default_systems</Filter>
     </ClCompile>
     <ClCompile Include="..\..\code\sources\input_task.cpp">
       <Filter>sources\default_tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\window.cpp">
+      <Filter>sources\window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\initialize.cpp">
+      <Filter>sources\window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\finalize.cpp">
+      <Filter>sources\window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\Sample_Renderer.cpp">
+      <Filter>sources\window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\Keyboard.cpp">
+      <Filter>sources\window</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

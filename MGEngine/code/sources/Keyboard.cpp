@@ -1,13 +1,19 @@
 
+// This is free code released into the public domain.
+// Drafted by √Ångel in January 2019.
+// Use it at your own risk. It might have bugs.
+// angel.rodriguez@esne.edu
+
 #include <SDL.h>
-#include "Keyboard.hpp"
+#include <Keyboard.hpp>
 
 namespace MGEngine
 {
-	Keyboard::Key_Code Keyboard::translate_sdl_key_code(int sdl_key_code)
-	{
-        // Se podrÌa hacer un array de traducciÛn directa, pero con la sentencia
-        // switch el compilador lo har· por nosotros de un modo transparente y
+
+    Keyboard::Key_Code Keyboard::translate_sdl_key_code (int sdl_key_code)
+    {
+        // Se podr√≠a hacer un array de traducci√≥n directa, pero con la sentencia
+        // switch el compilador lo har√° por nosotros de un modo transparente y
         // de sobra eficiente.
 
         switch (sdl_key_code)
@@ -56,11 +62,10 @@ namespace MGEngine
             case SDLK_8:            return KEY_8;
             case SDLK_9:            return KEY_9;
 
-                // ...
+            // ...
         }
 
         return KEY_UNKOWN;
-	}
+    }
+
 }
-
-

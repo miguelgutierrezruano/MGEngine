@@ -1,5 +1,5 @@
 
-#include <window.h>
+#include <Window.hpp>
 #include <iostream>
 #include <scene.h>
 

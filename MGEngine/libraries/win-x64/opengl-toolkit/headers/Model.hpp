@@ -43,7 +43,7 @@
                 pieces.push_back ({ drawable, material });
             }
 
-            const Piece_List & get_pieces () const
+            Piece_List & get_pieces ()
             {
                 return pieces;
             }

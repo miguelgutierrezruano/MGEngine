@@ -5,6 +5,8 @@
 #include <vector>
 #include <queue>
 #include <thread>
+#include <Window.hpp>
+#include <Sample_Renderer.hpp>
 #include "task.h"
 
 using namespace std::chrono;
@@ -15,6 +17,10 @@ namespace MGEngine
 
 	class kernel
 	{
+		Window* window;
+
+		Sample_Renderer * renderer;
+
 		// Queue of tasks to do
 		ptr_priority_queue task_queue;
 
@@ -31,6 +37,9 @@ namespace MGEngine
 		{
 			fps = 60;
 			stop = true;
+
+			window = nullptr;
+			renderer = nullptr;
 		}
 
 		// Give task to thread pool
@@ -45,6 +54,12 @@ namespace MGEngine
 		void stop_exec()
 		{
 			stop = true;
+		}
+
+		void set_window(Window& _window)
+		{
+			window = &_window;
+			renderer = new Sample_Renderer(_window);
 		}
 
 		void set_fps(float new_fps)
@@ -71,6 +86,8 @@ namespace MGEngine
 					task_queue.top()->start(delta_time);
 					task_queue.pop();
 				}
+
+				renderer->render();
 
 				// Calculate and apply delay if needed
 				duration<float> delay = duration<float>(frame_duration) - duration<float>(chrono.now() - start);

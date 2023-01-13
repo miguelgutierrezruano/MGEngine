@@ -13,9 +13,9 @@
 #include <string>
 #include <kernel.h>
 #include <entity.h>
+#include <Window.hpp>
 #include <system.h> // Remove when dummy system makes no sense
 #include <event_dispatcher.h>
-#include <render_system.h>
 #include <input_system.h>
 
 using namespace std;
@@ -37,7 +37,6 @@ namespace MGEngine
 		map< string, system* > systems;
 
 		// Default systems
-		render_system * render_sys;
 		input_system  * input_sys;
 		dummy_system  * dum_system;
 		

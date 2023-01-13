@@ -6,16 +6,17 @@ MGEngine::scene::scene(Window& given_window)
 	window = &given_window;
 
 	// Create systems. TODO: Use memorypools
-	render_sys = new render_system(given_window);
 	input_sys  = new input_system(this);
 	dum_system = new dummy_system();
 
+	s_kernel.set_window(given_window);
+
 	// Add default systems tasks
-	s_kernel.add_task(dum_system->get_task());
-	s_kernel.add_task(render_sys->get_task());
+	//s_kernel.add_task(dum_system->get_task());
 	s_kernel.add_task(input_sys->get_task());
 
-	//s_kernel.set_fps(1);
+	window->enable_vsync();
+	s_kernel.set_fps(144);
 }
 
 void MGEngine::scene::load_default_scene()

@@ -16,7 +16,7 @@
     <ClCompile Include="..\..\code\sources\input_system.cpp" />
     <ClCompile Include="..\..\code\sources\input_task.cpp" />
     <ClCompile Include="..\..\code\sources\Keyboard.cpp" />
-    <ClCompile Include="..\..\code\sources\render_system.cpp" />
+    <ClCompile Include="..\..\code\sources\Sample_Renderer.cpp" />
     <ClCompile Include="..\..\code\sources\scene.cpp" />
     <ClCompile Include="..\..\code\sources\window.cpp" />
     <ClCompile Include="..\..\code\sources\WinMain.cpp" />
@@ -24,21 +24,24 @@
   <ItemGroup>
     <ClInclude Include="..\..\code\headers\chunked_memory_pool.h" />
     <ClInclude Include="..\..\code\headers\component.h" />
+    <ClInclude Include="..\..\code\headers\declarations.hpp" />
     <ClInclude Include="..\..\code\headers\entity.h" />
     <ClInclude Include="..\..\code\headers\event.h" />
     <ClInclude Include="..\..\code\headers\event_dispatcher.h" />
     <ClInclude Include="..\..\code\headers\incremental_memory_pool.h" />
+    <ClInclude Include="..\..\code\headers\initialize.hpp" />
     <ClInclude Include="..\..\code\headers\input_system.h" />
     <ClInclude Include="..\..\code\headers\input_task.h" />
     <ClInclude Include="..\..\code\headers\kernel.h" />
     <ClInclude Include="..\..\code\headers\Keyboard.hpp" />
     <ClInclude Include="..\..\code\headers\object_pool.h" />
     <ClInclude Include="..\..\code\headers\render_system.h" />
+    <ClInclude Include="..\..\code\headers\Sample_Renderer.hpp" />
     <ClInclude Include="..\..\code\headers\scene.h" />
     <ClInclude Include="..\..\code\headers\system.h" />
     <ClInclude Include="..\..\code\headers\task.h" />
     <ClInclude Include="..\..\code\headers\thread_pool.h" />
-    <ClInclude Include="..\..\code\headers\window.h" />
+    <ClInclude Include="..\..\code\headers\Window.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
