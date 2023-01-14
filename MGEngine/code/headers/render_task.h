@@ -20,8 +20,7 @@ namespace MGEngine
 
 	class render_task : public task
 	{
-		// TODO: Convert to mesh components
-		std::list< std::shared_ptr < component > > renderer_components;
+		std::list< std::shared_ptr < mesh_component > > renderer_components;
 
 		scene * current_scene;
 
@@ -31,7 +30,7 @@ namespace MGEngine
 
 		render_task();
 
-		void add_component(std::shared_ptr < component > given);
+		void add_component(std::shared_ptr < mesh_component > given);
 
 		void set_scene(scene* given_scene) { current_scene = given_scene; }
 

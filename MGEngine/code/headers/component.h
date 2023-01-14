@@ -11,8 +11,9 @@ namespace MGEngine
 
 	class component
 	{
-		// System can affect entities that have any component
-		entity* owner;
+		// System can affect entities that have their component
+	public:
+		entity * owner;
 
 	public:
 
@@ -29,9 +30,29 @@ namespace MGEngine
 
 	class transform : public component
 	{
-		vec3 position = vec3(0, 0, 0);
-		quat rotation = vec3(0, 0, 0);
-		vec3 scale    = vec3(1, 1, 1);
+		vec3 position;
+		vec3 rotation;
+		vec3 scale;
+
+	public:
+
+		transform()
+		{
+			position = vec3(0, 0, 0);
+			rotation = vec3(0, 0, 0);
+			scale    = vec3(1, 1, 1);
+		}
+
+		void reset()
+		{
+			position = vec3(0, 0, 0);
+			rotation = vec3(0, 0, 0);
+			scale = vec3(1, 1, 1);
+		}
+
+		vec3 get_position() { return position; }
+		vec3 get_rotation() { return rotation; }
+		vec3 get_scale()    { return    scale; }
 	};
 }
 

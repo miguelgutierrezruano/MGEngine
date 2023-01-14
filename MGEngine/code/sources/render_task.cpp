@@ -2,6 +2,7 @@
 #include <render_task.h>
 #include <Render_Node.hpp>
 #include <scene.h>
+#include <component.h>
 
 using namespace glt;
 
@@ -18,9 +19,12 @@ namespace MGEngine
 		consumable = false;
 	}
 
-	void render_task::add_component(std::shared_ptr<component> given)
+	void render_task::add_component(std::shared_ptr<mesh_component> given)
 	{
 		renderer_components.push_back(given);
+
+		// Add mesh component to renderer so it shows
+		renderer->add(given.get()->get_id(), given.get()->get_mesh());
 	}
 
 	void render_task::run(float delta_time)
@@ -32,11 +36,25 @@ namespace MGEngine
 
 		glViewport(0, 0, width, height);
 
-		auto cube = renderer->get("cube");
+		for (auto render_component : renderer_components)
+		{
+			entity * owner = render_component.get()->get_owner();
 
-		cube->rotate_around_x(0.01f);
-		cube->rotate_around_y(0.02f);
-		cube->rotate_around_z(0.03f);
+			if (owner != nullptr)
+			{
+				// Apply transform
+				auto node = renderer.get()->get(render_component.get()->get_id());
+
+				transform * owner_transform = owner->get_transform();
+				node->translate(owner_transform->get_position());
+				/*node->rotate_around_x(owner_transform.get_rotation().x);
+				node->rotate_around_y(owner_transform.get_rotation().y);
+				node->rotate_around_z(owner_transform.get_rotation().z);
+				node->scale(owner->get_transform().get_scale().x,
+							owner->get_transform().get_scale().y,
+							owner->get_transform().get_scale().z);*/
+			}
+		}
 
 		current_scene->get_window()->clear();
 

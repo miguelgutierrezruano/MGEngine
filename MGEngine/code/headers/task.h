@@ -83,9 +83,6 @@ namespace MGEngine
 		void cancel()  { status = CANCELLED; }
 		void restart() { status =   WAITING; }
 
-		/// Virtual method to add components to task's sytem
-		virtual void add_component(std::shared_ptr< component >) { }
-
 	protected:
 
 		/// Method to invoke when task is being executed

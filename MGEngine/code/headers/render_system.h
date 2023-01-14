@@ -11,6 +11,11 @@
 
 #include <system.h>
 #include <render_task.h>
+#include <memory>
+#include <Model.hpp>
+#include <Mesh.hpp>
+
+using namespace glt;
 
 namespace MGEngine
 {
@@ -19,7 +24,30 @@ namespace MGEngine
 	// Mesh component
 	class mesh_component : public component
 	{
-		// OpenGLT attributes
+		// ID for renderer
+		std::string id;
+		std::shared_ptr< Model > mesh;
+
+	public:
+
+		// Create mesh component with given mesh
+		mesh_component(std::string & _id, Mesh * _mesh)
+		{
+			id = _id;
+
+			mesh.reset(new Model);
+			mesh->add(std::shared_ptr< Drawable >(_mesh), Material::default_material());
+		}
+
+		std::shared_ptr< Model > get_mesh()
+		{
+			return mesh;
+		}
+
+		const std::string & get_id()
+		{
+			return id; 
+		}
 	};
 
 	class render_system : public system
@@ -30,7 +58,7 @@ namespace MGEngine
 
 		render_system(scene * given_scene);
 
-		std::shared_ptr< component > create_component() override;
+		std::shared_ptr< component > create_component(entity*) override;
 
 		task* get_task() override
 		{

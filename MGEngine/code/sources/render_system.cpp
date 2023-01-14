@@ -5,8 +5,8 @@
 #include <Model.hpp>
 #include <Light.hpp>
 #include <Cube.hpp>
+#include <string>
 
-using namespace glt;
 using namespace std;
 
 namespace MGEngine
@@ -15,15 +15,10 @@ namespace MGEngine
 	{
 		r_task.set_scene(given_scene);
 
-		shared_ptr< Model  > cube(new Model);
+		// TODO: Convert camera and light into components
 		shared_ptr< Camera > camera(new Camera(20.f, 1.f, 50.f, 1.f));
 		shared_ptr< Light  > light(new Light);
 
-
-		cube->add(shared_ptr< Drawable >(new Cube), Material::default_material());
-
-
-		r_task.get_renderer()->add("cube", cube);
 		r_task.get_renderer()->add("camera", camera);
 		r_task.get_renderer()->add("light", light);
 
@@ -31,9 +26,14 @@ namespace MGEngine
 		r_task.get_renderer()->get("light")->translate(Vector3(10.f, 10.f, 10.f));
 	}
 
-	std::shared_ptr<component> render_system::create_component()
+	// TODO: Give xml node to create component OR Variadic arguments
+	std::shared_ptr<component> render_system::create_component(entity* _entity)
 	{
-		auto r_comp = std::make_shared< mesh_component >();
+		// Give entity name
+		std::string name = "AAA";
+
+		auto r_comp = std::make_shared< mesh_component >(name, new Cube); // TODO: Add other meshes
+		r_comp.get()->set_owner(_entity);
 		r_task.add_component(r_comp);
 		return r_comp;
 	}

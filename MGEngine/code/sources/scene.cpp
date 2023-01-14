@@ -20,9 +20,9 @@ MGEngine::scene::scene(Window& given_window)
 void MGEngine::scene::load_default_scene()
 {
 	// Create base scene
-	auto first_entity = make_shared< entity >();
+	std::string first_name = "First";
+	auto first_entity = make_shared< entity >(first_name);
 
-	//first_entity.get()->add_component("dummy", dum_system->create_component().get());
-
-	auto second = make_shared< entity >();
+	auto render_comp = render_sys->create_component(first_entity.get());
+	first_entity.get()->add_component("mesh", render_comp);
 }
