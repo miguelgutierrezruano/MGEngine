@@ -23,6 +23,6 @@ void MGEngine::scene::load_default_scene()
 	std::string first_name = "First";
 	auto first_entity = make_shared< entity >(first_name);
 
-	auto render_comp = render_sys->create_component(first_entity.get());
-	first_entity.get()->add_component("mesh", render_comp);
+	auto render_comp = render_sys->create_component();
+	first_entity.get()->add_component("RenderComp", render_comp);
 }

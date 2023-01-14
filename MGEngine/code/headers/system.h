@@ -14,7 +14,7 @@ namespace MGEngine
 	public:
 
 		// Give variadic arguments to component if needed
-		virtual std::shared_ptr< component > create_component(entity *) = 0;
+		virtual std::shared_ptr< component > create_component() = 0;
 		virtual task* get_task() { return nullptr; }
 	};
 }

@@ -28,7 +28,7 @@ namespace MGEngine
 
 	public:
 
-		std::shared_ptr< component > create_component(entity* _entity) override
+		std::shared_ptr< component > create_component() override
 		{
 			auto r_comp = std::make_shared< component >();
 			return r_comp;

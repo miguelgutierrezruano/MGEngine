@@ -30,7 +30,7 @@ namespace MGEngine
 		void add_component(const std::string & id, std::shared_ptr< component > given_component)
 		{
 			components.emplace(id, given_component);
-			//given_component.get()->set_owner(this);
+			given_component.get()->set_owner(this);
 		}
 
 		// Prolly make this sharedptr
