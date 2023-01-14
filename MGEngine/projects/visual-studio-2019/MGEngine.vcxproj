@@ -15,8 +15,10 @@
     <ClCompile Include="..\..\code\sources\initialize.cpp" />
     <ClCompile Include="..\..\code\sources\input_system.cpp" />
     <ClCompile Include="..\..\code\sources\input_task.cpp" />
+    <ClCompile Include="..\..\code\sources\kernel.cpp" />
     <ClCompile Include="..\..\code\sources\Keyboard.cpp" />
-    <ClCompile Include="..\..\code\sources\Sample_Renderer.cpp" />
+    <ClCompile Include="..\..\code\sources\render_system.cpp" />
+    <ClCompile Include="..\..\code\sources\render_task.cpp" />
     <ClCompile Include="..\..\code\sources\scene.cpp" />
     <ClCompile Include="..\..\code\sources\window.cpp" />
     <ClCompile Include="..\..\code\sources\WinMain.cpp" />
@@ -36,7 +38,7 @@
     <ClInclude Include="..\..\code\headers\Keyboard.hpp" />
     <ClInclude Include="..\..\code\headers\object_pool.h" />
     <ClInclude Include="..\..\code\headers\render_system.h" />
-    <ClInclude Include="..\..\code\headers\Sample_Renderer.hpp" />
+    <ClInclude Include="..\..\code\headers\render_task.h" />
     <ClInclude Include="..\..\code\headers\scene.h" />
     <ClInclude Include="..\..\code\headers\system.h" />
     <ClInclude Include="..\..\code\headers\task.h" />

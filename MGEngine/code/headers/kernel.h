@@ -6,7 +6,6 @@
 #include <queue>
 #include <thread>
 #include <Window.hpp>
-#include <Sample_Renderer.hpp>
 #include "task.h"
 
 using namespace std::chrono;
@@ -17,10 +16,6 @@ namespace MGEngine
 
 	class kernel
 	{
-		Window* window;
-
-		Sample_Renderer * renderer;
-
 		// Queue of tasks to do
 		ptr_priority_queue task_queue;
 
@@ -33,33 +28,14 @@ namespace MGEngine
 	public:
 
 		// Set default values
-		kernel()
-		{
-			fps = 60;
-			stop = true;
-
-			window = nullptr;
-			renderer = nullptr;
-		}
+		kernel();
 
 		// Give task to thread pool
-		void add_task(task* given_task)
-		{
-			if (not given_task->is_consumable())
-				non_consumable_tasks.push_back(given_task);
-
-			task_queue.push(given_task);
-		}
+		void add_task(task* given_task);
 
 		void stop_exec()
 		{
 			stop = true;
-		}
-
-		void set_window(Window& _window)
-		{
-			window = &_window;
-			renderer = new Sample_Renderer(_window);
 		}
 
 		void set_fps(float new_fps)
@@ -67,58 +43,10 @@ namespace MGEngine
 			fps = new_fps;
 		}
 
-		void execute()
-		{
-			stop = false;
-
-			auto chrono = high_resolution_clock();
-			float frame_duration = 1.f / fps;
-			float delta_time = frame_duration;
-
-			do
-			{
-				// Get time where frame started
-				high_resolution_clock::time_point start = chrono.now();
-
-				// Execute all tasks
-				while (not task_queue.empty())
-				{
-					task_queue.top()->start(delta_time);
-					task_queue.pop();
-				}
-
-				renderer->render();
-
-				// Calculate and apply delay if needed
-				duration<float> delay = duration<float>(frame_duration) - duration<float>(chrono.now() - start);
-				if (delay.count() > 0.f)
-					std::this_thread::sleep_for(delay);
-
-				// Set delta time for next frame
-				delta_time = duration<float>(chrono.now() - start).count();
-
-				// Add non consumable tasks back to queue
-				for (task* n_c_task : non_consumable_tasks)
-				{
-					task_queue.push(n_c_task);
-				}
-			} 
-			while (not stop);
-
-			clear_tasks();
-		}
+		void execute();
 
 	private:
 
-		void clear_tasks()
-		{
-			while (not task_queue.empty())
-			{
-				// Cancel task
-				task_queue.top()->cancel();
-				// Remove task
-				task_queue.pop();
-			}
-		}
+		void clear_tasks();
 	};
 }

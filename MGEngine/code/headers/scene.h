@@ -14,9 +14,9 @@
 #include <kernel.h>
 #include <entity.h>
 #include <Window.hpp>
-#include <system.h> // Remove when dummy system makes no sense
-#include <event_dispatcher.h>
 #include <input_system.h>
+#include <render_system.h>
+#include <event_dispatcher.h>
 
 using namespace std;
 
@@ -34,12 +34,11 @@ namespace MGEngine
 		event_dispatcher ev_dispatcher;
 
 		map< string, shared_ptr< entity* > > entities;
-		map< string, system* > systems;
+		//map< string, system* > systems; TODO: Add map of systems
 
 		// Default systems
 		input_system  * input_sys;
-		dummy_system  * dum_system;
-		
+		render_system * render_sys;
 
 	public:
 		/// <summary>
