@@ -23,28 +23,6 @@ namespace MGEngine
 
 		input_task i_task;
 
-		class input_listener : public event_listener
-		{
-			component* owner;
-
-			virtual void handle(const event& _event) override;
-
-		public:
-			
-			void set_owner(component* _owner) { owner = _owner; }
-		};
-
-		class input_component : public component
-		{
-		public:
-			input_listener listener;
-
-			input_component()
-			{
-				listener.set_owner(this);
-			}
-		};
-
 	public:
 
 		void add_input_event_mapping(Keyboard::Key_Code, std::string&);

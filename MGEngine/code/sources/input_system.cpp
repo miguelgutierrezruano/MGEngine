@@ -11,14 +11,9 @@ namespace MGEngine
 		i_task.add_input_event_mapping(key, _event_id);
 	}
 
-	// Give xml node and read event
 	std::shared_ptr<component> input_system::create_component(std::string& name)
 	{
-		auto r_comp = std::make_shared< input_component >();
-
-		current_scene->get_event_dispatcher()->register_listener(
-			"MoveLeft", &r_comp.get()->listener);
-
+		auto r_comp = std::make_shared< component >();
 		return r_comp;
 	}
 
@@ -26,17 +21,5 @@ namespace MGEngine
 	{
 		current_scene = given_scene;
 		i_task.set_scene(given_scene);
-	}
-
-	void input_system::input_listener::handle(const event& _event)
-	{
-		if (_event.id == "MoveLeft")
-		{
-			vec3 last = owner->get_owner()->get_transform()->get_position();
-
-			last.x--;
-
-			owner->get_owner()->get_transform()->set_position(last);
-		}
 	}
 }

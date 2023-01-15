@@ -18,5 +18,16 @@
     <ClCompile Include="..\code\sources\main.cpp">
       <Filter>sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\code\headers\MovementListener.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\code\headers\PaddleController.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\headers\MovementListener.h">
+      <Filter>headers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

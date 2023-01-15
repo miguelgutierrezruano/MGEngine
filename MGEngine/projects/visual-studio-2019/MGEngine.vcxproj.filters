@@ -105,6 +105,9 @@
     <ClInclude Include="..\..\code\headers\transform.h">
       <Filter>headers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\code\headers\update_task.h">
+      <Filter>headers\default_tasks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\sources\WinMain.cpp">
@@ -139,6 +142,12 @@
     </ClCompile>
     <ClCompile Include="..\..\code\sources\render_system.cpp">
       <Filter>sources\default_systems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\entity.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sources\update_task.cpp">
+      <Filter>sources</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

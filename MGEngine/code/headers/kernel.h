@@ -6,7 +6,8 @@
 #include <queue>
 #include <thread>
 #include <Window.hpp>
-#include "task.h"
+#include <task.h>
+#include <event.h>
 
 using namespace std::chrono;
 
@@ -21,6 +22,8 @@ namespace MGEngine
 
 		// List of non consumable task to add back to queue
 		std::list< task* > non_consumable_tasks;
+
+		std::queue< event* > event_queue;
 
 		float fps;
 		bool stop;

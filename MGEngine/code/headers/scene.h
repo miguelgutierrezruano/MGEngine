@@ -34,7 +34,6 @@ namespace MGEngine
 		event_dispatcher ev_dispatcher;
 
 		map< string, shared_ptr< entity > > entities;
-		//map< string, system* > systems; TODO: Add map of systems
 
 		// Default systems
 		input_system  * input_sys;
@@ -48,6 +47,8 @@ namespace MGEngine
 		scene(Window& given_window);
 
 		void load_default_scene();
+
+		void add_input_event_mapping(Keyboard::Key_Code key, std::string& _event_id);
 
 		/// Run one frame of the scene
 		void run()
@@ -70,5 +71,7 @@ namespace MGEngine
 		{
 			return &ev_dispatcher;
 		}
+
+		entity* get_entity(std::string& _name);
 	};
 }

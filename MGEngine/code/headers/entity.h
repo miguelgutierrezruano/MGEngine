@@ -1,16 +1,21 @@
 #pragma once
 
 #include <map>
+#include <list>
 #include <string>
 #include <transform.h>
 #include <string>
 #include <memory>
+#include <event.h>
 
 namespace MGEngine
 {
-	// TODO: Entity cpp
+	class scene;
+
 	class entity
 	{
+		scene* owner;
+
 		std::string name;
 
 		transform e_transform;
@@ -18,31 +23,19 @@ namespace MGEngine
 		// Map of each component of the entity and its id
 		std::map< std::string, std::shared_ptr< component > > components;
 
+		std::list< std::shared_ptr< event_listener > > listeners;
+
 	public:
 
-		entity(std::string & _name) 
-		{
-			name = _name;
-			e_transform.reset();
-		}
+		entity(std::string& _name, scene * _owner);
 
 		// Method to add components to entity
-		void add_component(const std::string & id, std::shared_ptr< component > given_component)
-		{
-			components.emplace(id, given_component);
-			given_component.get()->set_owner(this);
-		}
+		void add_component(const std::string& id, std::shared_ptr< component > given_component);
+
+		void add_listener(std::string event_id, std::shared_ptr < event_listener >);
 
 		// Prolly make this sharedptr
-		component * get_component(const std::string & id)
-		{
-			auto map_it = components.find(id);
-
-			if (map_it != components.end())
-				return map_it->second.get();
-			else
-				return nullptr;
-		}
+		component* get_component(const std::string& id);
 
 		transform * get_transform()
 		{
