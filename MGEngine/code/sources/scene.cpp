@@ -30,5 +30,7 @@ void MGEngine::scene::load_default_scene()
 	// Save entity
 	entities[first_name] = first_entity;
 
-	first_entity.get()->get_transform()->set_position(vec3(0.5f, 0, 0));
+	first_entity.get()->get_transform()->set_position(vec3(1.f, 0, 0));
+	first_entity.get()->get_transform()->set_rotation(vec3(45, 90, 30));
+	first_entity.get()->get_transform()->set_scale(vec3(2, 1, 1));
 }

@@ -55,6 +55,8 @@ namespace MGEngine
 		vec3 get_scale()    { return    scale; }
 
 		void set_position(vec3 new_pos) { position = new_pos; }
+		void set_rotation(vec3 new_rot) { rotation = new_rot; }
+		void set_scale (vec3 new_scale) { scale  = new_scale; }
 	};
 }
 

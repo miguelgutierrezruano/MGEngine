@@ -45,6 +45,9 @@ namespace MGEngine
 				// Apply transform
 				auto node = renderer.get()->get(render_component.get()->get_id());
 
+				// Reset transformation before applying transform
+				node->reset_transformation();
+
 				transform * owner_transform = owner->get_transform();
 				node->translate(owner_transform->get_position());
 				node->rotate_around_x(owner_transform->get_rotation().x);
