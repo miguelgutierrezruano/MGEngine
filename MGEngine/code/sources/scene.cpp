@@ -19,10 +19,16 @@ MGEngine::scene::scene(Window& given_window)
 
 void MGEngine::scene::load_default_scene()
 {
-	// Create base scene
+	// Create first entity
 	std::string first_name = "First";
 	auto first_entity = make_shared< entity >(first_name);
 
+	// Add render component
 	auto render_comp = render_sys->create_component();
 	first_entity.get()->add_component("RenderComp", render_comp);
+
+	// Save entity
+	entities[first_name] = first_entity;
+
+	first_entity.get()->get_transform()->set_position(vec3(0.5f, 0, 0));
 }

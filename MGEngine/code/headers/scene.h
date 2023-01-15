@@ -33,7 +33,7 @@ namespace MGEngine
 
 		event_dispatcher ev_dispatcher;
 
-		map< string, shared_ptr< entity* > > entities;
+		map< string, shared_ptr< entity > > entities;
 		//map< string, system* > systems; TODO: Add map of systems
 
 		// Default systems

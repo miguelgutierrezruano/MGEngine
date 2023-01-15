@@ -47,12 +47,12 @@ namespace MGEngine
 
 				transform * owner_transform = owner->get_transform();
 				node->translate(owner_transform->get_position());
-				/*node->rotate_around_x(owner_transform.get_rotation().x);
-				node->rotate_around_y(owner_transform.get_rotation().y);
-				node->rotate_around_z(owner_transform.get_rotation().z);
-				node->scale(owner->get_transform().get_scale().x,
-							owner->get_transform().get_scale().y,
-							owner->get_transform().get_scale().z);*/
+				node->rotate_around_x(owner_transform->get_rotation().x);
+				node->rotate_around_y(owner_transform->get_rotation().y);
+				node->rotate_around_z(owner_transform->get_rotation().z);
+				node->scale(owner->get_transform()->get_scale().x,
+							owner->get_transform()->get_scale().y,
+							owner->get_transform()->get_scale().z);
 			}
 		}
 
