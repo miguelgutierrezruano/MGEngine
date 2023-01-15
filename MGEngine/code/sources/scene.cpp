@@ -24,7 +24,7 @@ void MGEngine::scene::load_default_scene()
 	auto first_entity = make_shared< entity >(first_name);
 
 	// Add render component
-	auto render_comp = render_sys->create_component();
+	auto render_comp = render_sys->create_component(first_name);
 	first_entity.get()->add_component("RenderComp", render_comp);
 
 	// Save entity
@@ -36,7 +36,7 @@ void MGEngine::scene::load_default_scene()
 
 	// Add event
 	std::string moveleft = "MoveLeft";
-	first_entity.get()->add_component("InputComp", input_sys->create_component());
+	first_entity.get()->add_component("InputComp", input_sys->create_component(first_name));
 
 	input_sys->add_input_event_mapping(Keyboard::KEY_A, moveleft);
 }
