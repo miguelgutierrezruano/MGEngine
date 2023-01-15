@@ -26,7 +26,7 @@ namespace MGEngine
 	{
 		map< string, list < event_listener* > > listeners;
 
-		queue < event > saved_events;
+		list < event > saved_events;
 
 	public:
 
@@ -35,11 +35,7 @@ namespace MGEngine
 			listeners[event_id].push_back(listener);
 		}
 
-		void save(const event& _event)
-		{
-			// Maybe list would be better to filter contained events
-			saved_events.push(_event);
-		}
+		void save(const event& _event);
 
 		void send_events(float delta);
 	};

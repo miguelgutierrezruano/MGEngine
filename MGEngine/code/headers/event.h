@@ -20,7 +20,10 @@ namespace MGEngine
 	{
 		std::string id;
 
-		// TODO: Add properties
+		inline bool operator==(const event& other)
+		{
+			return this->id == other.id;
+		}
 	};
 
 	/// <summary>
