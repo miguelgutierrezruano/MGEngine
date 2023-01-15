@@ -27,11 +27,8 @@ namespace MGEngine
 	}
 
 	// TODO: Give xml node to create component OR Variadic arguments
-	std::shared_ptr<component> render_system::create_component()
+	std::shared_ptr<component> render_system::create_component(std::string& name)
 	{
-		// Give entity name
-		std::string name = "AAA";
-
 		auto r_comp = std::make_shared< mesh_component >(name, new Cube); // TODO: Add other meshes
 		r_task.add_component(r_comp);
 		return r_comp;

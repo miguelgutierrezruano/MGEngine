@@ -58,7 +58,7 @@ namespace MGEngine
 
 		render_system(scene * given_scene);
 
-		std::shared_ptr< component > create_component() override;
+		std::shared_ptr< component > create_component(std::string& name) override;
 
 		task* get_task() override
 		{

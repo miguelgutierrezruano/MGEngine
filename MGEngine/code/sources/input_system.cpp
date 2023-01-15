@@ -12,7 +12,7 @@ namespace MGEngine
 	}
 
 	// Give xml node and read event
-	std::shared_ptr<component> input_system::create_component()
+	std::shared_ptr<component> input_system::create_component(std::string& name)
 	{
 		auto r_comp = std::make_shared< input_component >();
 

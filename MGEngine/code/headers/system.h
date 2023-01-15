@@ -3,8 +3,8 @@
 #include <iostream>
 #include <memory>
 #include <list>
-#include "component.h"
-#include "task.h"
+#include <component.h>
+#include <task.h>
 
 namespace MGEngine
 {
@@ -14,7 +14,7 @@ namespace MGEngine
 	public:
 
 		// Give variadic arguments to component if needed
-		virtual std::shared_ptr< component > create_component() = 0;
+		virtual std::shared_ptr< component > create_component(std::string & name) = 0;
 		virtual task* get_task() { return nullptr; }
 	};
 }
