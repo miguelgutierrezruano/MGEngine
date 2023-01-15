@@ -60,7 +60,7 @@ namespace MGEngine
 							event map_event;
 							map_event.id = mapping.event_id;
 
-							current_scene->get_event_dispatcher()->send(map_event);
+							current_scene->get_event_dispatcher()->save(map_event);
 						}
 					}
 

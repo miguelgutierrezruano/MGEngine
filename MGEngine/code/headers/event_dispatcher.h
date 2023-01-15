@@ -12,6 +12,7 @@
 #include <string>
 #include <map>
 #include <list>
+#include <queue>
 #include <event.h>
 
 using namespace std;
@@ -25,6 +26,8 @@ namespace MGEngine
 	{
 		map< string, list < event_listener* > > listeners;
 
+		queue < event > saved_events;
+
 	public:
 
 		void register_listener(const string & event_id, event_listener * listener)
@@ -32,17 +35,12 @@ namespace MGEngine
 			listeners[event_id].push_back(listener);
 		}
 
-		void send(const event& _event)
+		void save(const event& _event)
 		{
-			auto it = listeners.find(_event.id);
-
-			if (it != listeners.end())
-			{
-				for (auto listener : it->second)
-				{
-					listener->handle(_event);
-				}
-			}
+			// Maybe list would be better to filter contained events
+			saved_events.push(_event);
 		}
+
+		void send_events(float delta);
 	};
 }

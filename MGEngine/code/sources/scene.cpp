@@ -11,9 +11,12 @@ namespace MGEngine
 		input_sys = new input_system(this);
 		render_sys = new render_system(this);
 
+		update_t = new update_task(&ev_dispatcher);
+
 		// Add default systems tasks
 		s_kernel.add_task(input_sys->get_task());
 		s_kernel.add_task(render_sys->get_task());
+		s_kernel.add_task(update_t);
 
 		window->enable_vsync();
 		s_kernel.set_fps(144);

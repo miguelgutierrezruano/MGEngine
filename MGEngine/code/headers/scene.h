@@ -15,6 +15,7 @@
 #include <entity.h>
 #include <Window.hpp>
 #include <input_system.h>
+#include <update_task.h>
 #include <render_system.h>
 #include <event_dispatcher.h>
 
@@ -38,6 +39,8 @@ namespace MGEngine
 		// Default systems
 		input_system  * input_sys;
 		render_system * render_sys;
+
+		update_task * update_t;
 
 	public:
 		/// <summary>

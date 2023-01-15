@@ -1,13 +1,13 @@
 
 #include <MovementListener.h>
 
-void MovementListener::handle(const event& _event)
+void MovementListener::handle(const event& _event, float delta_time)
 {
 	if (_event.id == "MoveLeft")
 	{
 		vec3 last = owner->get_transform()->get_position();
 
-		last.x--;
+		last.x -= speed * delta_time;
 
 		owner->get_transform()->set_position(last);
 	}
@@ -15,7 +15,7 @@ void MovementListener::handle(const event& _event)
 	{
 		vec3 last = owner->get_transform()->get_position();
 
-		last.x++;
+		last.x += speed * delta_time;
 
 		owner->get_transform()->set_position(last);
 	}

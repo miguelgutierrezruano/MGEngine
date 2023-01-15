@@ -149,5 +149,8 @@
     <ClCompile Include="..\..\code\sources\update_task.cpp">
       <Filter>sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\code\sources\event_dispatcher.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -3,5 +3,20 @@
 
 namespace MGEngine
 {
-	
+	update_task::update_task(event_dispatcher* given_dispatcher)
+	{
+		ev_dispatcher = given_dispatcher;
+
+		status = WAITING;
+		priority = UPDATE_PRIORITY;
+
+		consumable = false;
+	}
+
+	void update_task::run(float delta_time)
+	{
+		ev_dispatcher->send_events(delta_time);
+
+		// Entity updates
+	}
 }

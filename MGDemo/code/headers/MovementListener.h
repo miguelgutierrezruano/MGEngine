@@ -18,7 +18,9 @@ class MovementListener : public event_listener
 {
 	entity* owner;
 
-	virtual void handle(const event& _event) override;
+	float speed = 40.f;
+
+	virtual void handle(const event& _event, float delta_time) override;
 
 public:
 

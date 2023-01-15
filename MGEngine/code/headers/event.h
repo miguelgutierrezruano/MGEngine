@@ -28,7 +28,7 @@ namespace MGEngine
 	/// </summary>
 	struct event_listener
 	{
-		virtual void handle(const event & _event) = 0;
+		virtual void handle(const event & _event, float delta_time) = 0;
 	};
 }
 

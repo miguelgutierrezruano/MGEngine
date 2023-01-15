@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\sources\entity.cpp" />
+    <ClCompile Include="..\..\code\sources\event_dispatcher.cpp" />
     <ClCompile Include="..\..\code\sources\finalize.cpp" />
     <ClCompile Include="..\..\code\sources\initialize.cpp" />
     <ClCompile Include="..\..\code\sources\input_system.cpp" />

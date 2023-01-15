@@ -37,8 +37,6 @@ namespace MGEngine
 				task_queue.pop();
 			}
 
-			//renderer->render();
-
 			// Calculate and apply delay if needed
 			duration<float> delay = duration<float>(frame_duration) - duration<float>(chrono.now() - start);
 			if (delay.count() > 0.f)

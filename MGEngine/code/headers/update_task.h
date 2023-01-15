@@ -23,5 +23,8 @@ namespace MGEngine
 
 		update_task(event_dispatcher*);
 
+	protected:
+		virtual void run(float) override;
+
 	};
 }
