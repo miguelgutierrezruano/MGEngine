@@ -16,13 +16,13 @@ namespace MGEngine
 		r_task.set_scene(given_scene);
 
 		// TODO: Convert camera and light into components
-		shared_ptr< Camera > camera(new Camera(20.f, 1.f, 50.f, 1.f));
+		shared_ptr< Camera > camera(new Camera(40.f, 1.f, 50.f, 1.f));
 		shared_ptr< Light  > light(new Light);
 
 		r_task.get_renderer()->add("camera", camera);
 		r_task.get_renderer()->add("light", light);
 
-		r_task.get_renderer()->get("camera")->translate(Vector3(0.f, 0.f, 5.f));
+		r_task.get_renderer()->get("camera")->translate(Vector3(0.f, 0.f, 10.f));
 		r_task.get_renderer()->get("light")->translate(Vector3(10.f, 10.f, 10.f));
 	}
 

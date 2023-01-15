@@ -108,14 +108,14 @@ namespace MGEngine
                     case SDL_KEYDOWN:
                     {
                         event.type = Event::KEY_PRESSED;
-                        //event.data.keyboard.key_code = Keyboard::translate_sdl_key_code (sdl_event.key.keysym.sym);
+                        event.data.keyboard.key_code = Keyboard::translate_sdl_key_code (sdl_event.key.keysym.sym);
                         break;
                     }
 
                     case SDL_KEYUP:
                     {
                         event.type = Event::KEY_RELEASED;
-                        //event.data.keyboard.key_code = Keyboard::translate_sdl_key_code (sdl_event.key.keysym.sym);
+                        event.data.keyboard.key_code = Keyboard::translate_sdl_key_code (sdl_event.key.keysym.sym);
                         break;
                     }
                 }

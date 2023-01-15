@@ -20,7 +20,7 @@ namespace MGEngine
 	{
 		std::string id;
 
-		void set_id(const std::string& _id) { id = _id; }
+		// TODO: Add properties
 	};
 
 	/// <summary>

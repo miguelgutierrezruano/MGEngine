@@ -43,6 +43,7 @@
     <ClInclude Include="..\..\code\headers\system.h" />
     <ClInclude Include="..\..\code\headers\task.h" />
     <ClInclude Include="..\..\code\headers\thread_pool.h" />
+    <ClInclude Include="..\..\code\headers\transform.h" />
     <ClInclude Include="..\..\code\headers\Window.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

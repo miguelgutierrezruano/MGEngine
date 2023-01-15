@@ -11,6 +11,7 @@
 
 #include <system.h>
 #include <input_task.h>
+#include <event.h>
 
 namespace MGEngine
 {
@@ -18,21 +19,37 @@ namespace MGEngine
 
 	class input_system : public system
 	{
+		scene* current_scene;
 
 		input_task i_task;
 
+		class input_listener : public event_listener
+		{
+			component* owner;
+
+			virtual void handle(const event& _event) override;
+
+		public:
+			
+			void set_owner(component* _owner) { owner = _owner; }
+		};
+
 		class input_component : public component
 		{
-			// Add listener
+		public:
+			input_listener listener;
+
+			input_component()
+			{
+				listener.set_owner(this);
+			}
 		};
 
 	public:
 
-		std::shared_ptr< component > create_component() override
-		{
-			auto r_comp = std::make_shared< component >();
-			return r_comp;
-		}
+		void add_input_event_mapping(Keyboard::Key_Code, std::string&);
+
+		std::shared_ptr< component > create_component() override;
 
 		input_system(scene*);
 

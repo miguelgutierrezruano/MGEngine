@@ -8,6 +8,7 @@
 
 #include <string>
 #include <declarations.hpp>
+#include <Keyboard.hpp>
 
 namespace MGEngine
 {

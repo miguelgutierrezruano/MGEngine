@@ -102,6 +102,9 @@
     <ClInclude Include="..\..\code\headers\render_task.h">
       <Filter>headers\default_tasks</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\code\headers\transform.h">
+      <Filter>headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\sources\WinMain.cpp">

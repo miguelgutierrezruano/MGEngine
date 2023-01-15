@@ -1,6 +1,9 @@
 #pragma once
 
 #include <task.h>
+#include <Keyboard.hpp>
+#include <string>
+#include <list>
 
 namespace MGEngine
 {
@@ -8,9 +11,19 @@ namespace MGEngine
 
 	class input_task : public task
 	{
-		scene * current_scene;
+		// Only for keyboard now
+		struct Input_Event_Mapping
+		{
+			// Keyboard event
+			Keyboard::Event keyboard_event;
 
-		// List of components
+			// ID of engine event
+			std::string event_id;
+		};
+
+		std::list < Input_Event_Mapping > input_event_mappings;
+
+		scene * current_scene;
 
 	public:
 
@@ -20,6 +33,8 @@ namespace MGEngine
 		{
 			current_scene = given;
 		}
+
+		void add_input_event_mapping(Keyboard::Key_Code, std::string&);
 
 	protected:
 

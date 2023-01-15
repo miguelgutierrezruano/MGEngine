@@ -30,7 +30,13 @@ void MGEngine::scene::load_default_scene()
 	// Save entity
 	entities[first_name] = first_entity;
 
-	first_entity.get()->get_transform()->set_position(vec3(1.f, 0, 0));
-	first_entity.get()->get_transform()->set_rotation(vec3(45, 90, 30));
-	first_entity.get()->get_transform()->set_scale(vec3(2, 1, 1));
+	first_entity.get()->get_transform()->set_position(vec3(30.f, 0, 0));
+	first_entity.get()->get_transform()->set_rotation(vec3(0, 0, 0));
+	first_entity.get()->get_transform()->set_scale(vec3(1, 7, 1));
+
+	// Add event
+	std::string moveleft = "MoveLeft";
+	first_entity.get()->add_component("InputComp", input_sys->create_component());
+
+	input_sys->add_input_event_mapping(Keyboard::KEY_A, moveleft);
 }

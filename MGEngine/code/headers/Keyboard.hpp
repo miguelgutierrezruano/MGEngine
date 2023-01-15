@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include <event.h>
+
 namespace MGEngine
 {
 
@@ -42,6 +44,19 @@ namespace MGEngine
             KEY_9,
 
             //...
+        };
+
+        struct Event
+        {
+            Key_Code key_code;
+        };
+
+        struct Key_Pressed_Event : public Event
+        {
+        };
+
+        struct Key_Released_Event : public Event
+        {
         };
 
     public:
