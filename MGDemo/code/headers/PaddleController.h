@@ -9,9 +9,21 @@
 
 #pragma once
 
-class PaddleController
-{
+#include <controller.h>
 
+using namespace MGEngine;
+
+class PaddleController : public controller
+{
+	entity* ball;
+
+	float speed = 20.f;
+
+public:
+
+	PaddleController(entity* _ball);
+
+	void update(float delta_time) override;
 };
 
 

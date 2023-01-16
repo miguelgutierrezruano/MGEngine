@@ -108,6 +108,9 @@
     <ClInclude Include="..\..\code\headers\update_task.h">
       <Filter>headers\default_tasks</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\code\headers\controller.h">
+      <Filter>headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\sources\WinMain.cpp">

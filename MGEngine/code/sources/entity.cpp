@@ -1,6 +1,7 @@
 
 #include <entity.h>
 #include <scene.h>
+#include <controller.h>
 
 namespace MGEngine
 {
@@ -15,6 +16,15 @@ namespace MGEngine
 	{
 		components.emplace(id, given_component);
 		given_component.get()->set_owner(this);
+	}
+
+	void entity::add_controller(std::shared_ptr<controller> given_controller)
+	{
+		components.emplace("Controller", given_controller);
+		given_controller.get()->set_owner(this);
+
+		// Add controller to update task
+		owner->add_controller(given_controller);
 	}
 
 	void entity::add_listener(std::string event_id, std::shared_ptr<event_listener> listener)

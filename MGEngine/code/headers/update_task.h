@@ -9,15 +9,20 @@
 
 #pragma once
 
-#include <task.h>
 #include <queue>
+#include <list>
+#include <task.h>
+#include <controller.h>
 #include <event_dispatcher.h>
 
 namespace MGEngine
 {
 	class update_task : public task
 	{
+		// Change for scene pointer
 		event_dispatcher* ev_dispatcher;
+
+		std::list < std::shared_ptr< controller > > controllers;
 
 	public:
 
@@ -25,6 +30,10 @@ namespace MGEngine
 
 	protected:
 		virtual void run(float) override;
+
+	public:
+
+		void add_controller(std::shared_ptr< controller >);
 
 	};
 }

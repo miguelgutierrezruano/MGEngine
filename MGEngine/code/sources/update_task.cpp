@@ -18,5 +18,14 @@ namespace MGEngine
 		ev_dispatcher->send_events(delta_time);
 
 		// Entity updates
+		for (auto controller : controllers)
+		{
+			controller.get()->update(delta_time);
+		}
+	}
+
+	void update_task::add_controller(std::shared_ptr< controller > given_controller)
+	{
+		controllers.push_back(given_controller);
 	}
 }

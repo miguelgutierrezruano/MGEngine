@@ -49,9 +49,11 @@ namespace MGEngine
 		/// <param name="given_window"> Window where to render the scene </param>
 		scene(Window& given_window);
 
-		void load_default_scene();
+		void load_pong_scene();
 
 		void add_input_event_mapping(Keyboard::Key_Code key, std::string& _event_id);
+
+		void add_controller(std::shared_ptr< controller >);
 
 		/// Run one frame of the scene
 		void run()

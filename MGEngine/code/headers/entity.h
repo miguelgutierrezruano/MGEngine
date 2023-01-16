@@ -11,6 +11,7 @@
 namespace MGEngine
 {
 	class scene;
+	class controller;
 
 	class entity
 	{
@@ -31,6 +32,9 @@ namespace MGEngine
 
 		// Method to add components to entity
 		void add_component(const std::string& id, std::shared_ptr< component > given_component);
+
+		// Could be in add component filtering by given_component type
+		void add_controller(std::shared_ptr< controller > given_controller);
 
 		void add_listener(std::string event_id, std::shared_ptr < event_listener >);
 

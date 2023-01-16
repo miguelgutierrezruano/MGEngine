@@ -1,7 +1,8 @@
 
 #include <Window.hpp>
-#include <iostream>
 #include <scene.h>
+#include <BallController.h>
+#include <PaddleController.h>
 #include <MovementListener.h>
 
 using namespace MGEngine;
@@ -14,7 +15,7 @@ int main()
 
 	// Create scene
 	scene first_scene(window);
-	first_scene.load_default_scene();
+	first_scene.load_pong_scene();
 
 	// Add for entities in scene their listener
 	std::string moveleft = "MoveLeft";
@@ -25,13 +26,27 @@ int main()
 
 	std::shared_ptr < MovementListener > movListener = std::make_shared<MovementListener>();
 
-	std::string firstName = "First";
+	std::string firstName = "PlayerPaddle";
 
 	auto targetEntity = first_scene.get_entity(firstName);
 	movListener.get()->set_owner(targetEntity);
 
 	first_scene.get_entity(firstName)->add_listener("MoveLeft", movListener);
 	first_scene.get_entity(firstName)->add_listener("MoveRight", movListener);
+
+	// Add controller for ball
+	std::shared_ptr < BallController > ballController = std::make_shared<BallController>();
+
+	std::string ballName = "Ball";
+
+	first_scene.get_entity(ballName)->add_controller(ballController);
+
+	// Add controller for enemy paddle
+	std::shared_ptr < PaddleController > paddleController = std::make_shared<PaddleController>(first_scene.get_entity(ballName));
+
+	std::string paddleName = "Paddle";
+
+	first_scene.get_entity(paddleName)->add_controller(paddleController);
 
 	// Engine main loop
 	first_scene.run();

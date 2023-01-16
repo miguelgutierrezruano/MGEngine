@@ -29,6 +29,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\code\headers\chunked_memory_pool.h" />
     <ClInclude Include="..\..\code\headers\component.h" />
+    <ClInclude Include="..\..\code\headers\controller.h" />
     <ClInclude Include="..\..\code\headers\declarations.hpp" />
     <ClInclude Include="..\..\code\headers\entity.h" />
     <ClInclude Include="..\..\code\headers\event.h" />

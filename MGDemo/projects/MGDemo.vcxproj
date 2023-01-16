@@ -87,9 +87,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\code\headers\MovementListener.cpp" />
+    <ClCompile Include="..\code\sources\BallController.cpp" />
     <ClCompile Include="..\code\sources\main.cpp" />
+    <ClCompile Include="..\code\sources\PaddleController.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\code\headers\BallController.h" />
     <ClInclude Include="..\code\headers\MovementListener.h" />
     <ClInclude Include="..\code\headers\PaddleController.h" />
   </ItemGroup>
