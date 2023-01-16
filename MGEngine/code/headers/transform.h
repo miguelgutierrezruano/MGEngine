@@ -26,6 +26,8 @@ namespace MGEngine
 			scale = vec3(1, 1, 1);
 		}
 
+		const vec3 get_position() const { return position; }
+
 		vec3 get_position() { return position; }
 		vec3 get_rotation() { return rotation; }
 		vec3 get_scale() { return    scale; }

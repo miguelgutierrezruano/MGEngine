@@ -1,5 +1,6 @@
 
 #include <PaddleController.h>
+#include <BallController.h>
 #include <entity.h>
 
 using namespace MGEngine;
@@ -7,11 +8,13 @@ using namespace MGEngine;
 PaddleController::PaddleController(entity* _ball)
 {
 	ball = _ball;
+
+	ball_controller = dynamic_cast<BallController*>(ball->get_component("Controller"));
 }
 
 void PaddleController::update(float delta_time)
 {
-	if (ball != nullptr)
+	if (ball_controller->get_state() == BallController::Moving)
 	{
 		vec3 position = owner->get_transform()->get_position();
 

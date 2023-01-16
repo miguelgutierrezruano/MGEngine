@@ -13,11 +13,14 @@
 
 using namespace MGEngine;
 
+class BallController;
+
 class PaddleController : public controller
 {
 	entity* ball;
+	BallController* ball_controller;
 
-	float speed = 20.f;
+	float speed = 23.f;
 
 public:
 

@@ -18,13 +18,16 @@
     <ClCompile Include="..\code\sources\main.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\code\headers\MovementListener.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
     <ClCompile Include="..\code\sources\BallController.cpp">
       <Filter>sources</Filter>
     </ClCompile>
     <ClCompile Include="..\code\sources\PaddleController.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\sources\BallListener.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\sources\MovementListener.cpp">
       <Filter>sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -36,6 +39,9 @@
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="..\code\headers\BallController.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\headers\BallListener.h">
       <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>

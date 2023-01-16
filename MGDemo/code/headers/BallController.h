@@ -2,12 +2,24 @@
 #pragma once
 
 #include <controller.h>
+#include <event.h>
 #include <vector>
 
 using namespace MGEngine;
 
 class BallController : public controller
 {
+public:
+	enum states
+	{
+		Idle,
+		Moving
+	};
+
+private:
+
+	states state;
+
 	std::vector< entity* > paddles;
 
 	float speed_y = 30.f;
@@ -22,7 +34,13 @@ public:
 
 	void update(float delta_time) override;
 
+	const states & get_state() { return state; }
+
+	void set_moving_state() { state = Moving; }
+
 private:
 
 	void paddle_collision();
+
+	void reset_ball();
 };
