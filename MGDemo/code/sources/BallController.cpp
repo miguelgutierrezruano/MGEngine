@@ -1,6 +1,7 @@
 
 #include <cstdlib>
 #include <entity.h>
+#include <PaddleController.h>
 #include <BallController.h>
 
 BallController::BallController(entity * paddle1, entity * paddle2)
@@ -89,4 +90,15 @@ void BallController::reset_ball()
 {
 	state = Idle;
 	owner->get_transform()->set_position(vec3(0, 0, 0));
+
+	// Reset paddles
+	for (auto& paddle : paddles)
+	{
+		PaddleController * paddle_controller = dynamic_cast<PaddleController*>(paddle->get_component("Controller"));
+
+		if (paddle_controller)
+			paddle->get_transform()->set_position(vec3(30.f, 0, 0));
+		else
+			paddle->get_transform()->set_position(vec3(-30.f, 0, 0));
+	}
 }

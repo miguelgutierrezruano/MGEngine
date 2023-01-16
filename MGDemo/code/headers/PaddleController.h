@@ -20,7 +20,7 @@ class PaddleController : public controller
 	entity* ball;
 	BallController* ball_controller;
 
-	float speed = 23.f;
+	float speed = 26.f;
 
 public:
 
