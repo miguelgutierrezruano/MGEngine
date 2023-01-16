@@ -34,17 +34,18 @@ int main()
 	first_scene.get_entity(firstName)->add_listener("MoveLeft", movListener);
 	first_scene.get_entity(firstName)->add_listener("MoveRight", movListener);
 
-	// Add controller for ball
-	std::shared_ptr < BallController > ballController = std::make_shared<BallController>();
+	std::string ballName   = "Ball";
+	std::string paddleName = "Paddle";
 
-	std::string ballName = "Ball";
+	// Add controller for ball
+	std::shared_ptr < BallController > ballController = std::make_shared<BallController>(
+														first_scene.get_entity(firstName),
+														first_scene.get_entity(paddleName));
 
 	first_scene.get_entity(ballName)->add_controller(ballController);
 
 	// Add controller for enemy paddle
 	std::shared_ptr < PaddleController > paddleController = std::make_shared<PaddleController>(first_scene.get_entity(ballName));
-
-	std::string paddleName = "Paddle";
 
 	first_scene.get_entity(paddleName)->add_controller(paddleController);
 

@@ -18,8 +18,11 @@ class BallController : public controller
 
 public:
 
-	// Add references to paddles
-	BallController();
+	BallController(entity* paddle1, entity* paddle2);
 
 	void update(float delta_time) override;
+
+private:
+
+	void paddle_collision();
 };
