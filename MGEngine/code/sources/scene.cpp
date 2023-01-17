@@ -1,5 +1,8 @@
 
 #include <scene.h>
+#include <tinyxml2.h>
+
+using namespace tinyxml2;
 
 namespace MGEngine
 {
@@ -22,50 +25,62 @@ namespace MGEngine
 		s_kernel.set_fps(144);
 	}
 
-	void scene::load_pong_scene()
+	void scene::load_scene(const char * xml_path)
 	{
-		// Create player entity
-		std::string player_name = "PlayerPaddle";
-		auto player_entity = make_shared< entity >(player_name, this);
+		XMLDocument doc;
+		doc.LoadFile(xml_path);
 
-		// Add render component
-		auto render_comp = render_sys->create_component(player_name);
-		player_entity.get()->add_component("RenderComp", render_comp);
+		// Get scene element
+		XMLElement * rootElement = doc.RootElement();
+		
+		XMLElement* entity_elem = rootElement->FirstChildElement("entity");
 
-		// Save entity
-		entities[player_name] = player_entity;
+		while(entity_elem)
+		{
+			// Make entity
+			std::string entity_name = entity_elem->Attribute("id");
+			auto new_entity = make_shared< entity >(entity_name, this);
 
-		player_entity.get()->get_transform()->set_position(vec3(-30.f, 0, 0));
-		player_entity.get()->get_transform()->set_rotation(vec3(0, 0, 0));
-		player_entity.get()->get_transform()->set_scale(vec3(1, 7, 0.1f));
+			// Apply transform
+			XMLElement * entity_transform = entity_elem->FirstChildElement("transform");
 
-		// Create first entity
-		std::string ball_name = "Ball";
-		auto ball = make_shared< entity >(ball_name, this);
+			// Set position
+			XMLElement* position = entity_transform->FirstChildElement("position_x");
+			XMLElement* rotation = entity_transform->FirstChildElement("rotation_x");
+			XMLElement* scale = entity_transform->FirstChildElement("scale_x");
+			vec3 t_position(0, 0, 0);
+			vec3 t_rotation(0, 0, 0);
+			vec3 t_scale(0, 0, 0);
 
-		// Add render component
-		auto render_comp_ball = render_sys->create_component(ball_name);
-		ball.get()->add_component("RenderComp", render_comp_ball);
+			for (int i = 0; i < 3; ++i)
+			{
+				t_position[i] = stof(position->GetText());
+				t_rotation[i] = stof(rotation->GetText());
+				t_scale[i] = stof(scale->GetText());
 
-		// Save entity
-		entities[ball_name] = ball;
+				position = position->NextSiblingElement();
+				rotation = rotation->NextSiblingElement();
+				scale = scale->NextSiblingElement();
+			}
 
-		ball.get()->get_transform()->set_scale(vec3(1.3f, 1.3f, 0.1f));
+			new_entity.get()->get_transform()->set_position(t_position);
+			new_entity.get()->get_transform()->set_rotation(t_rotation);
+			new_entity.get()->get_transform()->set_scale(t_scale);
 
-		// Create second paddle
-		std::string paddle_name = "Paddle";
-		auto paddle_entity = make_shared< entity >(paddle_name, this);
+			// Apply render component
+			XMLElement* entity_render = entity_elem->FirstChildElement("render_component");
 
-		// Add render component
-		auto render_comp_paddle = render_sys->create_component(paddle_name);
-		paddle_entity.get()->add_component("RenderComp", render_comp_paddle);
+			if (stoi(entity_render->GetText()) != 0)
+			{
+				auto render_comp = render_sys->create_component(entity_name);
+				new_entity.get()->add_component("RenderComp", render_comp);
+			}
 
-		// Save entity
-		entities[paddle_name] = paddle_entity;
+			// Save entity
+			entities[entity_name] = new_entity;
 
-		paddle_entity.get()->get_transform()->set_position(vec3(30.f, 0, 0));
-		paddle_entity.get()->get_transform()->set_rotation(vec3(0, 0, 0));
-		paddle_entity.get()->get_transform()->set_scale(vec3(1, 7, 0.1f));
+			entity_elem = entity_elem->NextSiblingElement();
+		}
 	}
 
 	void scene::add_input_event_mapping(Keyboard::Key_Code key, std::string& _event_id)

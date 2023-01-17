@@ -30,6 +30,9 @@
     <ClCompile Include="..\code\sources\MovementListener.cpp">
       <Filter>sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\MGEngine\libraries\win-x64\tinyxml2\tinyxml2.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\code\headers\PaddleController.h">
@@ -42,6 +45,9 @@
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="..\code\headers\BallListener.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MGEngine\libraries\win-x64\tinyxml2\tinyxml2.h">
       <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>

@@ -49,7 +49,7 @@ namespace MGEngine
 		/// <param name="given_window"> Window where to render the scene </param>
 		scene(Window& given_window);
 
-		void load_pong_scene();
+		void load_scene(const char* xml_path);
 
 		void add_input_event_mapping(Keyboard::Key_Code key, std::string& _event_id);
 
