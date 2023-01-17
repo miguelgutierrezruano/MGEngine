@@ -15,7 +15,7 @@ namespace MGEngine
 		consumable = false;
 	}	
 
-	void input_task::add_input_event_mapping(Keyboard::Key_Code key, std::string& _event_id)
+	void input_task::add_input_event_mapping(Keyboard::Key_Code key, const std::string& _event_id)
 	{
 		// TODO: Add parameter to key released
 		Keyboard::Key_Pressed_Event event;

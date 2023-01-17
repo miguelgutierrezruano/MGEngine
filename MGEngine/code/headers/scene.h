@@ -51,7 +51,7 @@ namespace MGEngine
 
 		void load_scene(const char* xml_path);
 
-		void add_input_event_mapping(Keyboard::Key_Code key, std::string& _event_id);
+		void add_input_event_mapping(Keyboard::Key_Code key, const std::string& _event_id);
 
 		void add_controller(std::shared_ptr< controller >);
 

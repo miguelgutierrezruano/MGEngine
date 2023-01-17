@@ -83,7 +83,7 @@ namespace MGEngine
 		}
 	}
 
-	void scene::add_input_event_mapping(Keyboard::Key_Code key, std::string& _event_id)
+	void scene::add_input_event_mapping(Keyboard::Key_Code key, const std::string& _event_id)
 	{
 		input_sys->add_input_event_mapping(key, _event_id);
 	}

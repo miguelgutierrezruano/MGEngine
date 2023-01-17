@@ -25,7 +25,7 @@ namespace MGEngine
 
 	public:
 
-		void add_input_event_mapping(Keyboard::Key_Code, std::string&);
+		void add_input_event_mapping(Keyboard::Key_Code, const std::string&);
 
 		std::shared_ptr< component > create_component(std::string& name) override;
 

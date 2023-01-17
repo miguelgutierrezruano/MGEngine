@@ -6,7 +6,7 @@
 
 namespace MGEngine
 {
-	void input_system::add_input_event_mapping(Keyboard::Key_Code key, std::string& _event_id)
+	void input_system::add_input_event_mapping(Keyboard::Key_Code key, const std::string& _event_id)
 	{
 		i_task.add_input_event_mapping(key, _event_id);
 	}

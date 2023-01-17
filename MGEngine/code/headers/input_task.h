@@ -34,7 +34,7 @@ namespace MGEngine
 			current_scene = given;
 		}
 
-		void add_input_event_mapping(Keyboard::Key_Code, std::string&);
+		void add_input_event_mapping(Keyboard::Key_Code, const std::string&);
 
 	protected:
 

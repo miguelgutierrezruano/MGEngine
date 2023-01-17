@@ -5,18 +5,14 @@
 #include <PaddleController.h>
 #include <MovementListener.h>
 #include <BallListener.h>
-#include <filesystem>
 
 using namespace MGEngine;
 
 void add_pong_logic(scene & pong_scene)
 {
 	// Add for entities in scene their listener
-	std::string moveUp = "MoveUp";
-	pong_scene.add_input_event_mapping(Keyboard::KEY_W, moveUp);
-
-	std::string moveDown = "MoveDown";
-	pong_scene.add_input_event_mapping(Keyboard::KEY_S, moveDown);
+	pong_scene.add_input_event_mapping(Keyboard::KEY_W, "MoveUp");
+	pong_scene.add_input_event_mapping(Keyboard::KEY_S, "MoveDown");
 
 	std::shared_ptr < MovementListener > movListener = std::make_shared<MovementListener>();
 
@@ -44,8 +40,7 @@ void add_pong_logic(scene & pong_scene)
 	pong_scene.get_entity(paddleName)->add_controller(paddleController);
 
 	// Add event to move ball
-	std::string moveBall = "MoveBall";
-	pong_scene.add_input_event_mapping(Keyboard::KEY_SPACE, moveBall);
+	pong_scene.add_input_event_mapping(Keyboard::KEY_SPACE, "MoveBall");
 
 	std::shared_ptr < BallListener > ballListener = std::make_shared<BallListener>();
 	ballListener.get()->set_ball_controller(ballController.get());
