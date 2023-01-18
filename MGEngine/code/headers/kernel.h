@@ -23,8 +23,6 @@ namespace MGEngine
 		// List of non consumable task to add back to queue
 		std::list< task* > non_consumable_tasks;
 
-		std::queue< event* > event_queue;
-
 		float fps;
 		bool stop;
 
