@@ -1,3 +1,12 @@
+/*
+ * @file Input task
+ * @author Miguel Gutierrez
+ *
+ * Copyright (c) 2022 miguelguti
+ *
+ * Distributed under the MIT License
+ */
+
 #pragma once
 
 #include <task.h>
@@ -9,9 +18,14 @@ namespace MGEngine
 {
 	class scene;
 
+	/// <summary>
+	/// Task to proccess user's input in a window
+	/// </summary>
 	class input_task : public task
 	{
-		// Only for keyboard now
+		/// <summary>
+		/// Struct that pairs a key event to an ID
+		/// </summary>
 		struct Input_Event_Mapping
 		{
 			// Keyboard event
@@ -27,17 +41,33 @@ namespace MGEngine
 
 	public:
 
+		/// <summary>
+		/// Constructor of input task
+		/// </summary>
 		input_task();
 
+		/// <summary>
+		/// Setter of the scene
+		/// </summary>
+		/// <param name="given">Scene where to detect events</param>
 		void set_scene(scene * given)
 		{
 			current_scene = given;
 		}
 
-		void add_input_event_mapping(Keyboard::Key_Code, const std::string&);
+		/// <summary>
+		/// Add an input event mapping to list
+		/// </summary>
+		/// <param name="key">Key that invokes event on pressed</param>
+		/// <param name="_event_id">ID of event to be invoked</param>
+		void add_input_event_mapping(Keyboard::Key_Code key, const std::string& _event_id);
 
 	protected:
 
+		/// <summary>
+		/// Execution of the task
+		/// </summary>
+		/// <param name="delta_time">Time between frames</param>
 		void run(float delta_time) override;
 
 	private:

@@ -17,6 +17,9 @@
 
 namespace MGEngine
 {
+	/// <summary>
+	/// Task to update controllers and send events
+	/// </summary>
 	class update_task : public task
 	{
 		// Change for scene pointer
@@ -26,9 +29,18 @@ namespace MGEngine
 
 	public:
 
-		update_task(event_dispatcher*);
+		/// <summary>
+		/// Constructor of update task
+		/// </summary>
+		/// <param name="given_dispatcher">Dispatcher to handle events</param>
+		update_task(event_dispatcher* given_dispatcher);
 
 	protected:
+
+		/// <summary>
+		/// Execution of the task
+		/// </summary>
+		/// <param name="delta_time">Time between frames</param>
 		virtual void run(float) override;
 
 	public:
