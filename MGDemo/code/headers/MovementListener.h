@@ -16,15 +16,10 @@ using namespace MGEngine;
 
 class MovementListener : public event_listener
 {
-	entity* owner;
-
 	float speed = 60.f;
 
 	float vertical_limit = 18.f;
 
+protected:
 	virtual void handle(const event& _event, float delta_time) override;
-
-public:
-
-	void set_owner(entity* _owner) { owner = _owner; }
 };

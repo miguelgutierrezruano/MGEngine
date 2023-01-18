@@ -24,8 +24,6 @@ namespace MGEngine
 		// Map of each component of the entity and its id
 		std::map< std::string, std::shared_ptr< component > > components;
 
-		std::list< std::shared_ptr< event_listener > > listeners;
-
 	public:
 
 		entity(std::string& _name, scene * _owner);

@@ -19,7 +19,6 @@ void add_pong_logic(scene & pong_scene)
 	std::string firstName = "PlayerPaddle";
 
 	auto targetEntity = pong_scene.get_entity(firstName);
-	movListener.get()->set_owner(targetEntity);
 
 	pong_scene.get_entity(firstName)->add_listener("MoveUp", movListener);
 	pong_scene.get_entity(firstName)->add_listener("MoveDown", movListener);

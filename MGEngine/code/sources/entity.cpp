@@ -29,7 +29,8 @@ namespace MGEngine
 
 	void entity::add_listener(std::string event_id, std::shared_ptr<event_listener> listener)
 	{
-		listeners.push_back(listener);
+		components.emplace("EventListener", listener);
+		listener.get()->set_owner(this);
 
 		// Register listener in scene
 		owner->get_event_dispatcher()->register_listener(event_id, listener.get());

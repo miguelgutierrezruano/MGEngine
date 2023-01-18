@@ -10,6 +10,7 @@
 #pragma once
 
 #include <string>
+#include <component.h>
 
 namespace MGEngine
 {
@@ -29,7 +30,7 @@ namespace MGEngine
 	/// <summary>
 	/// 
 	/// </summary>
-	struct event_listener
+	struct event_listener : component
 	{
 		virtual void handle(const event & _event, float delta_time) = 0;
 	};
