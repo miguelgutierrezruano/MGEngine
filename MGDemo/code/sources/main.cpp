@@ -10,16 +10,18 @@ using namespace MGEngine;
 
 void add_pong_logic(scene & pong_scene)
 {
-	// Add for entities in scene their listener
+	// Add input mapping for movement
 	pong_scene.add_input_event_mapping(Keyboard::KEY_W, "MoveUp");
 	pong_scene.add_input_event_mapping(Keyboard::KEY_S, "MoveDown");
 
+	// Create movement listener
 	std::shared_ptr < MovementListener > movListener = std::make_shared<MovementListener>();
 
 	std::string firstName = "PlayerPaddle";
 
 	auto targetEntity = pong_scene.get_entity(firstName);
 
+	// Assign movement listener to player paddle
 	pong_scene.get_entity(firstName)->add_listener("MoveUp", movListener);
 	pong_scene.get_entity(firstName)->add_listener("MoveDown", movListener);
 
