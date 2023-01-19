@@ -17,9 +17,7 @@ namespace MGEngine
     {
     public:
 
-        /** Esta clase Event es específica para los eventos de la ventana.
-          * Por ello está anidada dentro de Window. Se podría generalizar.
-          */
+        // Window events
         struct Event
         {
             enum Type
@@ -56,28 +54,23 @@ namespace MGEngine
 
     public:
 
-        /** Retorna el ancho actual de la ventana (el usuario puede cambiarlo).
-          */
+        // Returns window width
         unsigned get_width () const;
 
-        /** Retorna el alto actual de la ventana (el usuario puede cambiarlo).
-          */
+        // Returns window height
         unsigned get_height () const;
 
-        /** Permite extraer un evento de la cola de eventos asociada a la ventana.
-          */
+        // Get an event from window
         bool poll (Event & event) const;
 
         void enable_vsync ();
 
         void disable_vsync ();
 
-        /** Borra el buffer de la pantalla usando OpenGL.
-          */
+        // Clear buffer
         void clear () const;
 
-        /** Intercambia el buffer visible con el buffer oculto.
-          */
+        // Swap shown and hide buffers
         void swap_buffers () const;
 
     };

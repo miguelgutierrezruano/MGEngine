@@ -61,10 +61,11 @@ namespace MGEngine
 
     public:
 
-        /** Esta función sirve para traducir un código de tecla de SDL a uno propio del engine.
-          * TO DO: La función se debería "esconder" en lugar de tenerla presente en la interfaz pública
-          * (pese a que no crea dependencias con SDL a quien use el engine).
-          */
+        /// <summary>
+        /// Translate SDL key code to MGEngine keycode
+        /// </summary>
+        /// <param name="sdl_key_code">SDL keycode</param>
+        /// <returns>MGEngine keycode</returns>
         static Key_Code translate_sdl_key_code (int sdl_key_code);
 
     };

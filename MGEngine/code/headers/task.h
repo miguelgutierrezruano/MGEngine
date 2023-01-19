@@ -14,13 +14,17 @@
 
 namespace MGEngine
 {
-	/// Class to execute tasks on kernel
+	/// <summary>
+	/// Base class of kernel tasks
+	/// </summary>
 	class task
 	{
 
 	public:
 
-		/// Status of task
+		/// <summary>
+		/// Possible states of task
+		/// </summary>
 		enum Status
 		{
 			WAITING,
@@ -29,7 +33,9 @@ namespace MGEngine
 			FINISHED
 		};
 
-		/// Priority to establish execution order
+		/// <summary>
+		/// Set execution order
+		/// </summary>
 		enum Priority
 		{
 			INPUT_PRIORITY = 300,
@@ -48,6 +54,9 @@ namespace MGEngine
 
 	public:
 
+		/// <summary>
+		/// Default constructor of task
+		/// </summary>
 		task()
 		{
 			status   = WAITING;
@@ -57,12 +66,15 @@ namespace MGEngine
 		}
 
 		Status get_status() { return status; }
+
 		Priority get_priority() const { return priority; }
 
 		bool is_consumable() const { return consumable; }
 
-		/// Handle task 
-		/// @delta expected time between current frame and next one
+		/// <summary>
+		/// Handle task
+		/// </summary>
+		/// <param name="delta">Time between frames</param>
 		void start(float delta)
 		{
 			// Add events to avoid checking status on loop
@@ -85,10 +97,16 @@ namespace MGEngine
 
 	protected:
 
-		/// Method to invoke when task is being executed
+		/// <summary>
+		/// Pure virtual method to invoke when task is being executed
+		/// </summary>
+		/// <param name=""></param>
 		virtual void run(float ) = 0;
 	};
 
+	/// <summary>
+	/// Class to order pointer to task class by its priority
+	/// </summary>
 	class Task_Priority_Less
 	{
 	public:

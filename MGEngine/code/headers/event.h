@@ -15,7 +15,7 @@
 namespace MGEngine
 {
 	/// <summary>
-	/// 
+	/// Event to be sended and recieved
 	/// </summary>
 	struct event
 	{
@@ -28,10 +28,15 @@ namespace MGEngine
 	};
 
 	/// <summary>
-	/// 
+	/// Event listener added to entities
 	/// </summary>
 	struct event_listener : component
 	{
+		/// <summary>
+		/// Pure virtual method to handle events
+		/// </summary>
+		/// <param name="_event">Recieved event</param>
+		/// <param name="delta_time">Time between frames</param>
 		virtual void handle(const event & _event, float delta_time) = 0;
 	};
 }

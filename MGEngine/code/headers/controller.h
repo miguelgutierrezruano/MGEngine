@@ -13,10 +13,17 @@
 
 namespace MGEngine
 {
+	/// <summary>
+	/// Entity controller. Added as component
+	/// </summary>
 	class controller : public component
 	{
 	public:
-		// Method to execute every frame
+		
+		/// <summary>
+		/// Method to be executed every frame
+		/// </summary>
+		/// <param name="delta_time">Time between frames</param>
 		virtual void update(float delta_time) { }
 	};
 }
