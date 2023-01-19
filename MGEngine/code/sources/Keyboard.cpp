@@ -12,10 +12,6 @@ namespace MGEngine
 
     Keyboard::Key_Code Keyboard::translate_sdl_key_code (int sdl_key_code)
     {
-        // Se podría hacer un array de traducción directa, pero con la sentencia
-        // switch el compilador lo hará por nosotros de un modo transparente y
-        // de sobra eficiente.
-
         switch (sdl_key_code)
         {
             case SDLK_RETURN:       return KEY_RETURN;

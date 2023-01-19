@@ -1,3 +1,11 @@
+/*
+ * @file Ball Controller
+ * @author Miguel Gutierrez
+ *
+ * Copyright (c) 2022 miguelguti
+ *
+ * Distributed under the MIT License
+ */
 
 #pragma once
 
@@ -40,6 +48,7 @@ public:
 
 private:
 
+	// Check collisions with paddles
 	void paddle_collision();
 
 	void reset_ball();

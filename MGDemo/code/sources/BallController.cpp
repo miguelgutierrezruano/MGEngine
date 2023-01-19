@@ -66,7 +66,7 @@ void BallController::paddle_collision()
 
 	for (auto& paddle : paddles)
 	{
-		// Cant take pointer
+		// Cant take pointer ?
 		vec3 paddle_position = paddle->get_transform()->get_position();
 
 		float x_diff = position.x - paddle_position.x;

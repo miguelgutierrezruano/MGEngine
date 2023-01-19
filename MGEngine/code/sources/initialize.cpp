@@ -12,13 +12,10 @@ namespace MGEngine
 
     extern void finalize ();
 
-    /** Esta función se llama en aquellos lugares en los que se necesita
-      * inicializar algún subsistema de SDL.
-      */
+    // Method to initialize SDL subsystems
     bool initialize (int subsystem)
     {
-        // Se hace que al salir de la función main() se invoque automáticamente
-        // a la función finalize() una vez:
+        // At exit of main call finalize
 
         static bool finalize_is_not_set = true;
 
@@ -29,7 +26,7 @@ namespace MGEngine
             std::atexit (finalize);
         }
 
-        // Se inicializa el subsistema si no estaba inicializado:
+        // Initialize system if it wasn't already
 
         if (!SDL_WasInit (subsystem))
         {

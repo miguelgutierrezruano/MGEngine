@@ -20,6 +20,7 @@ namespace MGEngine
 
 	void entity::add_controller(std::shared_ptr<controller> given_controller)
 	{
+		// Restrict one controller per entity
 		components.emplace("Controller", given_controller);
 		given_controller.get()->set_owner(this);
 
@@ -29,10 +30,11 @@ namespace MGEngine
 
 	void entity::add_listener(std::string event_id, std::shared_ptr<event_listener> listener)
 	{
+		// Restrict one listener per entity
 		components.emplace("EventListener", listener);
 		listener.get()->set_owner(this);
 
-		// Register listener in scene
+		// Register listener in event dispatcher
 		owner->get_event_dispatcher()->register_listener(event_id, listener.get());
 	}
 

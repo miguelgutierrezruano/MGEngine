@@ -11,6 +11,7 @@ namespace MGEngine
 		i_task.add_input_event_mapping(key, _event_id);
 	}
 
+	// Useless method
 	std::shared_ptr<component> input_system::create_component(std::string& name)
 	{
 		auto r_comp = std::make_shared< component >();

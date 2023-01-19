@@ -23,12 +23,13 @@ namespace MGEngine
 	{
 		renderer_components.push_back(given);
 
-		// Add mesh component to renderer so it shows
+		// Add mesh component to renderer so it can be shown
 		renderer->add(given.get()->get_id(), given.get()->get_mesh());
 	}
 
 	void render_task::run(float delta_time)
 	{
+		// Adapt render to window size
 		GLsizei width = GLsizei(current_scene->get_window()->get_width());
 		GLsizei height = GLsizei(current_scene->get_window()->get_height());
 
@@ -36,18 +37,20 @@ namespace MGEngine
 
 		glViewport(0, 0, width, height);
 
+		// Foreach render component in the task
 		for (auto render_component : renderer_components)
 		{
 			entity * owner = render_component.get()->get_owner();
 
 			if (owner != nullptr)
 			{
-				// Apply transform
+				// Get OpenGL Toolkit node
 				auto node = renderer.get()->get(render_component.get()->get_id());
 
 				// Reset transformation before applying transform
 				node->reset_transformation();
 
+				// Apply transform
 				transform * owner_transform = owner->get_transform();
 				node->translate(owner_transform->get_position());
 				node->rotate_around_x(owner_transform->get_rotation().x);

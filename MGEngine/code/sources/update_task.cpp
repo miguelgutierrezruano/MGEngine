@@ -15,6 +15,7 @@ namespace MGEngine
 
 	void update_task::run(float delta_time)
 	{
+		// Send events saved in last frame
 		ev_dispatcher->send_events(delta_time);
 
 		// Entity updates

@@ -9,6 +9,7 @@ namespace MGEngine
 		// Filter list
 		bool found = (std::find(saved_events.begin(), saved_events.end(), _event) != saved_events.end());
 
+		// Save event
 		if(not found)
 			saved_events.push_back(_event);
 	}
@@ -32,6 +33,7 @@ namespace MGEngine
 				}
 			}
 
+			// Pop element from list
 			saved_events.pop_front();
 		}
 	}

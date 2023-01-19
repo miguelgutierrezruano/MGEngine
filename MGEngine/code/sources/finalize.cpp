@@ -8,10 +8,6 @@
 
 namespace MGEngine
 {
-
-    /** Esta función se llamará automáticamente al salir de la función main() solo
-      * si se inicializa algún subsistema de SDL.
-      */
     void finalize ()
     {
         SDL_Quit ();

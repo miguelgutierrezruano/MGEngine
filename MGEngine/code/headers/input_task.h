@@ -69,9 +69,5 @@ namespace MGEngine
 		/// </summary>
 		/// <param name="delta_time">Time between frames</param>
 		void run(float delta_time) override;
-
-	private:
-
-		void check_window_events();
 	};
 }

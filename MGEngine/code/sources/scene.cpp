@@ -44,7 +44,7 @@ namespace MGEngine
 			// Apply transform
 			XMLElement * entity_transform = entity_elem->FirstChildElement("transform");
 
-			// Set position
+			// Apply transform
 			XMLElement* position = entity_transform->FirstChildElement("position_x");
 			XMLElement* rotation = entity_transform->FirstChildElement("rotation_x");
 			XMLElement* scale = entity_transform->FirstChildElement("scale_x");

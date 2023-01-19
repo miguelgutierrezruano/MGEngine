@@ -21,22 +21,20 @@ namespace MGEngine
 		Keyboard::Key_Pressed_Event event;
 		event.key_code = key;
 
+		// Create new input event mapping
 		Input_Event_Mapping new_input_event_mapping;
 		new_input_event_mapping.keyboard_event = event;
 		new_input_event_mapping.event_id = _event_id;
 
+		// Add to list
 		input_event_mappings.push_back(new_input_event_mapping);
 	}
 
 	void input_task::run(float delta_time)
 	{
-		check_window_events();
-	}
-
-	void input_task::check_window_events()
-	{
 		Window::Event w_event;
 
+		// While there are events in the window
 		while (current_scene->get_window()->poll(w_event))
 		{
 			switch (w_event.type)
@@ -48,7 +46,6 @@ namespace MGEngine
 					break;
 				}
 
-				// Switch on key pressed
 				case w_event.KEY_PRESSED:
 				{
 					// Foreach mapping search for key pressed
@@ -64,6 +61,7 @@ namespace MGEngine
 						}
 					}
 
+					// Close window if escape key is pressed
 					if (w_event.data.keyboard.key_code == Keyboard::KEY_ESCAPE)
 					{
 						current_scene->stop();

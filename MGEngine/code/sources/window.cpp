@@ -88,10 +88,9 @@ namespace MGEngine
 
     bool Window::poll (Event & event) const
     {
-        if (window)     // Aunque sería raro, puede llegar a ocurrir que no se haya conseguido crear la ventana...
+        if (window)
         {
-            // Se extrae un evento usando SDL y se convierte a un evento propio de
-            // nuestro engine:
+            // Cast SDL Event to MGEngine event
 
             SDL_Event sdl_event;
 
