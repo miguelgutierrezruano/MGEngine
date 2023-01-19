@@ -1,6 +1,10 @@
 #pragma once
 
 #include <component.h>
+#include <glm.hpp>
+#include <gtc/quaternion.hpp>
+
+using namespace glm;
 
 namespace MGEngine
 {
