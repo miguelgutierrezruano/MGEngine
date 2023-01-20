@@ -36,7 +36,6 @@ namespace MGEngine
 
 		map< string, shared_ptr< entity > > entities;
 
-
 		input_system  * input_sys;
 		render_system * render_sys;
 		update_task * update_t;

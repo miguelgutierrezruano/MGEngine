@@ -45,7 +45,11 @@ namespace MGEngine
 
 	public:
 
-		void add_controller(std::shared_ptr< controller >);
+		/// <summary>
+		/// Add controller to be managed by kernel
+		/// </summary>
+		/// <param name="given_controller">Controller to be added</param>
+		void add_controller(std::shared_ptr< controller > given_controller);
 
 	};
 }
